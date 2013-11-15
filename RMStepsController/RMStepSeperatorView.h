@@ -10,6 +10,8 @@
 
 @interface RMStepSeperatorView : UIView
 
+@property (nonatomic, strong) UIColor *seperatorColor;
+
 - (void)setLeftColor:(UIColor *)leftColor animated:(BOOL)animated;
 - (void)setRightColor:(UIColor *)rightColor animated:(BOOL)animated;
 

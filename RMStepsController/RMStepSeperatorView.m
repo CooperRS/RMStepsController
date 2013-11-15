@@ -7,6 +7,7 @@
 //
 
 #import "RMStepSeperatorView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface RMStepSeperatorView ()
 
@@ -31,6 +32,14 @@
 }
 
 #pragma mark - Properties
+- (UIColor *)seperatorColor {
+    if(!_seperatorColor) {
+        self.seperatorColor = [UIColor colorWithWhite:0 alpha:0.3];
+    }
+    
+    return _seperatorColor;
+}
+
 - (CAShapeLayer *)leftShapeLayer {
     if(!_leftShapeLayer) {
         self.leftShapeLayer = [CAShapeLayer layer];
@@ -58,6 +67,7 @@
         fillColorAnimation.delegate = self;
         fillColorAnimation.removedOnCompletion = NO;
         fillColorAnimation.fillMode = kCAFillModeForwards;
+        fillColorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
         
         [self.leftShapeLayer addAnimation:fillColorAnimation forKey:@"fillColor"];
     } else {
@@ -74,6 +84,7 @@
         fillColorAnimation.delegate = self;
         fillColorAnimation.removedOnCompletion = NO;
         fillColorAnimation.fillMode = kCAFillModeForwards;
+        fillColorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
         
         [self.rightShapeLayer addAnimation:fillColorAnimation forKey:@"fillColor"];
     } else {
@@ -120,7 +131,7 @@
     [bezier setLineWidth:1.0];
     [bezier setLineJoinStyle:kCGLineJoinBevel];
     
-    [[UIColor colorWithWhite:0 alpha:0.3] setStroke];
+    [self.seperatorColor setStroke];
     [bezier stroke];
 }
 

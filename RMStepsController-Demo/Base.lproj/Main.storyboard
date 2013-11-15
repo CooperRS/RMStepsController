@@ -190,6 +190,62 @@
             </objects>
             <point key="canvasLocation" x="1963" y="5"/>
         </scene>
+        <!--Demo Step View Controller-->
+        <scene sceneID="gfz-f9-J3J">
+            <objects>
+                <viewController storyboardIdentifier="SomeStep4" id="P0B-L5-bSB" customClass="RMDemoStepViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1RU-Mv-HqT"/>
+                        <viewControllerLayoutGuide type="bottom" id="fRM-8i-ysv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aO2-Q7-C03">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcH-JS-EwB">
+                                <rect key="frame" x="126" y="269" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next Step">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextStepTapped:" destination="P0B-L5-bSB" eventType="touchUpInside" id="pQ5-rs-70U"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Oi-NP-ZF7">
+                                <rect key="frame" x="112" y="307" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Previous Step">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="previousStepTapped:" destination="P0B-L5-bSB" eventType="touchUpInside" id="g6f-z3-faW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzg-Ak-3iX">
+                                <rect key="frame" x="20" y="141" width="280" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qzg-Ak-3iX" secondAttribute="trailing" constant="20" id="1Gd-jf-aUh"/>
+                            <constraint firstItem="qzg-Ak-3iX" firstAttribute="leading" secondItem="aO2-Q7-C03" secondAttribute="leading" constant="20" id="Thu-Rc-RSW"/>
+                            <constraint firstAttribute="centerX" secondItem="DcH-JS-EwB" secondAttribute="centerX" id="USt-76-EVh"/>
+                            <constraint firstAttribute="centerX" secondItem="5Oi-NP-ZF7" secondAttribute="centerX" id="ZtR-0Y-MX8"/>
+                            <constraint firstItem="DcH-JS-EwB" firstAttribute="top" secondItem="qzg-Ak-3iX" secondAttribute="bottom" constant="8" id="mHi-wZ-gWA"/>
+                            <constraint firstItem="5Oi-NP-ZF7" firstAttribute="top" secondItem="DcH-JS-EwB" secondAttribute="bottom" constant="8" id="q2T-Y1-lWH"/>
+                            <constraint firstAttribute="centerY" secondItem="DcH-JS-EwB" secondAttribute="centerY" id="rPP-U9-zS9"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="luH-Jy-gPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2343" y="5"/>
+        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -8,7 +8,7 @@
 
 #import "RMStepsBar.h"
 
-#import "RMStep.h"
+#import "RMStep+Private.h"
 #import "RMStepSeperatorView.h"
 
 #define RM_CANCEL_BUTTON_WIDTH 50
@@ -32,6 +32,8 @@
 
 @implementation RMStepsBar
 
+@synthesize seperatorColor = _seperatorColor;
+
 #pragma mark - Init and Dealloc
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -52,10 +54,33 @@
 }
 
 #pragma mark - Properties
+- (UIColor *)seperatorColor {
+    if(!_seperatorColor) {
+        self.seperatorColor = [UIColor colorWithWhite:0 alpha:0.3];
+    }
+    
+    return _seperatorColor;
+}
+
+- (void)setSeperatorColor:(UIColor *)newSeperatorColor {
+    if(newSeperatorColor != _seperatorColor) {
+        _seperatorColor = newSeperatorColor;
+        
+        self.topLine.backgroundColor = newSeperatorColor;
+        self.bottomLine.backgroundColor = newSeperatorColor;
+        
+        for(NSDictionary *aStepDict in self.stepDictionaries) {
+            if(aStepDict[RM_RIGHT_SEPERATOR_KEY]) {
+                [(RMStepSeperatorView *)aStepDict[RM_RIGHT_SEPERATOR_KEY] setSeperatorColor:newSeperatorColor];
+            }
+        }
+    }
+}
+
 - (UIView *)topLine {
     if(!_topLine) {
         self.topLine = [[UIView alloc] initWithFrame:CGRectZero];
-        _topLine.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
+        _topLine.backgroundColor = self.seperatorColor;
         _topLine.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
     }
     
@@ -65,7 +90,7 @@
 - (UIView *)bottomLine {
     if(!_bottomLine) {
         self.bottomLine = [[UIView alloc] initWithFrame:CGRectZero];
-        _bottomLine.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
+        _bottomLine.backgroundColor = self.seperatorColor;
         _bottomLine.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     }
     
@@ -75,7 +100,7 @@
 - (UIView *)cancelSeperator {
     if(!_cancelSeperator) {
         self.cancelSeperator = [[UIView alloc] initWithFrame:CGRectZero];
-        _cancelSeperator.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
+        _cancelSeperator.backgroundColor = self.seperatorColor;
         _cancelSeperator.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
     }
     
@@ -88,30 +113,6 @@
     }
     
     return _stepDictionaries;
-}
-
-- (UIColor *)selectedColor {
-    if(!_selectedColor) {
-        self.selectedColor = [[UIColor greenColor] colorWithAlphaComponent:0.5];
-    }
-    
-    return _selectedColor;
-}
-
-- (UIColor *)enabledColor {
-    if(!_enabledColor) {
-        self.enabledColor = [UIColor colorWithWhite:0.85 alpha:0.5];
-    }
-    
-    return _enabledColor;
-}
-
-- (UIColor *)disabledColor {
-    if(!_disabledColor) {
-        self.disabledColor = [UIColor clearColor];
-    }
-    
-    return _disabledColor;
 }
 
 - (void)setIndexOfSelectedStep:(NSUInteger)newIndexOfSelectedStep {
@@ -143,9 +144,16 @@
 - (void)updateStepsAnimated:(BOOL)animated {
     __weak RMStepsBar *blockself = self;
     [self.stepDictionaries enumerateObjectsUsingBlock:^(NSDictionary *aStepDict, NSUInteger idx, BOOL *stop) {
+        RMStep *step = (RMStep *)aStepDict[RM_STEP_KEY];
+        RMStepSeperatorView *leftSeperator = (RMStepSeperatorView *)aStepDict[RM_LEFT_SEPERATOR_KEY];
+        RMStepSeperatorView *rightSeperator = (RMStepSeperatorView *)aStepDict[RM_RIGHT_SEPERATOR_KEY];
+        
         if(blockself.indexOfSelectedStep > idx) {
             void (^stepAnimations)(void) = ^(void) {
-                [(RMStep *)aStepDict[RM_STEP_KEY] stepView].backgroundColor = self.enabledColor;
+                step.stepView.backgroundColor = step.enabledBarColor;
+                step.titleLabel.textColor = step.enabledTextColor;
+                step.numberLabel.textColor = step.enabledTextColor;
+                step.circleLayer.strokeColor = step.enabledTextColor.CGColor;
             };
             
             if(animated)
@@ -153,11 +161,14 @@
             else
                 stepAnimations();
             
-            [(RMStepSeperatorView *)aStepDict[RM_LEFT_SEPERATOR_KEY] setRightColor:self.enabledColor animated:animated];
-            [(RMStepSeperatorView *)aStepDict[RM_RIGHT_SEPERATOR_KEY] setLeftColor:self.enabledColor animated:animated];
+            [leftSeperator setRightColor:step.enabledBarColor animated:animated];
+            [rightSeperator setLeftColor:step.enabledBarColor animated:animated];
         } else if(blockself.indexOfSelectedStep == idx) {
             void (^stepAnimations)(void) = ^(void) {
-                [(RMStep *)aStepDict[RM_STEP_KEY] stepView].backgroundColor = self.selectedColor;
+                step.stepView.backgroundColor = step.selectedBarColor;
+                step.titleLabel.textColor = step.selectedTextColor;
+                step.numberLabel.textColor = step.selectedTextColor;
+                step.circleLayer.strokeColor = step.selectedTextColor.CGColor;
             };
             
             if(animated)
@@ -165,11 +176,14 @@
             else
                 stepAnimations();
             
-            [(RMStepSeperatorView *)aStepDict[RM_LEFT_SEPERATOR_KEY] setRightColor:self.selectedColor animated:animated];
-            [(RMStepSeperatorView *)aStepDict[RM_RIGHT_SEPERATOR_KEY] setLeftColor:self.selectedColor animated:animated];
+            [leftSeperator setRightColor:step.selectedBarColor animated:animated];
+            [rightSeperator setLeftColor:step.selectedBarColor animated:animated];
         } else if(blockself.indexOfSelectedStep < idx) {
             void (^stepAnimations)(void) = ^(void) {
-                [(RMStep *)aStepDict[RM_STEP_KEY] stepView].backgroundColor = self.disabledColor;
+                step.stepView.backgroundColor = step.disabledBarColor;
+                step.titleLabel.textColor = step.disabledTextColor;
+                step.numberLabel.textColor = step.disabledTextColor;
+                step.circleLayer.strokeColor = step.disabledTextColor.CGColor;
             };
             
             if(animated)
@@ -177,8 +191,8 @@
             else
                 stepAnimations();
             
-            [(RMStepSeperatorView *)aStepDict[RM_LEFT_SEPERATOR_KEY] setRightColor:self.disabledColor animated:animated];
-            [(RMStepSeperatorView *)aStepDict[RM_RIGHT_SEPERATOR_KEY] setLeftColor:self.disabledColor animated:animated];
+            [leftSeperator setRightColor:step.disabledBarColor animated:animated];
+            [rightSeperator setLeftColor:step.disabledBarColor animated:animated];
         }
     }];
 }
@@ -203,6 +217,7 @@
             rightSeperator = nil;
         } else {
             rightSeperator = [[RMStepSeperatorView alloc] initWithFrame:CGRectZero];
+            rightSeperator.seperatorColor = self.seperatorColor;
             rightSeperator.translatesAutoresizingMaskIntoConstraints = NO;
             
             [self addSubview:rightSeperator];

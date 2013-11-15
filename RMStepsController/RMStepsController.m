@@ -8,12 +8,14 @@
 
 #import "RMStepsController.h"
 
+#import "UIViewController+RMStepsController.h"
+
 #import "RMStepsBar.h"
 
 @interface RMStepsController () <RMStepsBarDelegate, RMStepsBarDataSource>
 
 @property (nonatomic, strong, readwrite) NSMutableDictionary *results;
-@property (nonatomic, strong) UIViewController<RMStepViewController> *currentStepViewController;
+@property (nonatomic, strong) UIViewController *currentStepViewController;
 
 @property (nonatomic, strong, readwrite) RMStepsBar *stepsBar;
 @property (nonatomic, strong) UIView *stepViewControllerContainer;
@@ -88,9 +90,8 @@
     NSArray *stepViewControllers = [self stepViewControllers];
     NSAssert([stepViewControllers count] > 0, @"Fatal: At least one step view controller must be returned by +[%@ stepViewControllers].", [self class]);
     
-    for(UIViewController<RMStepViewController> *aViewController in stepViewControllers) {
+    for(UIViewController *aViewController in stepViewControllers) {
         NSAssert([aViewController isKindOfClass:[UIViewController class]], @"Fatal: %@ is not a subclass from UIViewController. Only UIViewControllers are supported by RMStepsController as steps.", [aViewController class]);
-        NSAssert([aViewController conformsToProtocol:@protocol(RMStepViewController)], @"Fatal: %@ does not implement the RMStepsController protocol. Only UIViewControllers that implement this protocol are supported by RMStepsController as steps.", [aViewController class] );
         
         aViewController.stepsController = self;
         
@@ -100,7 +101,7 @@
     }
 }
 
-- (void)showStepViewController:(UIViewController<RMStepViewController> *)aViewController animated:(BOOL)animated {
+- (void)showStepViewController:(UIViewController *)aViewController animated:(BOOL)animated {
     if(!animated) {
         [self showStepViewControllerWithoutAnimation:aViewController];
     } else {
@@ -108,7 +109,7 @@
     }
 }
 
-- (void)showStepViewControllerWithoutAnimation:(UIViewController<RMStepViewController> *)aViewController {
+- (void)showStepViewControllerWithoutAnimation:(UIViewController *)aViewController {
     [self.currentStepViewController viewWillDisappear:NO];
     [self.currentStepViewController.view removeFromSuperview];
     [self.currentStepViewController viewDidDisappear:NO];
@@ -124,7 +125,7 @@
     [self.stepsBar setIndexOfSelectedStep:[self.childViewControllers indexOfObject:aViewController] animated:NO];
 }
 
-- (void)showStepViewControllerWithSlideInAnimation:(UIViewController<RMStepViewController> *)aViewController {
+- (void)showStepViewControllerWithSlideInAnimation:(UIViewController *)aViewController {
     NSInteger oldIndex = [self.childViewControllers indexOfObject:self.currentStepViewController];
     NSInteger newIndex = [self.childViewControllers indexOfObject:aViewController];
     
@@ -160,7 +161,7 @@
 - (void)showNextStep {
     NSInteger index = [self.childViewControllers indexOfObject:self.currentStepViewController];
     if(index < [self.childViewControllers count]-1) {
-        UIViewController<RMStepViewController> *nextStepViewController = [self.childViewControllers objectAtIndex:index+1];
+        UIViewController *nextStepViewController = [self.childViewControllers objectAtIndex:index+1];
         [self showStepViewController:nextStepViewController animated:YES];
     } else {
         [self finishedAllSteps];
@@ -170,7 +171,7 @@
 - (void)showPreviousStep {
     NSInteger index = [self.childViewControllers indexOfObject:self.currentStepViewController];
     if(index > 0) {
-        UIViewController<RMStepViewController> *nextStepViewController = [self.childViewControllers objectAtIndex:index-1];
+        UIViewController *nextStepViewController = [self.childViewControllers objectAtIndex:index-1];
         [self showStepViewController:nextStepViewController animated:YES];
     } else {
         [self canceled];
@@ -191,7 +192,7 @@
 }
 
 - (RMStep *)stepsBar:(RMStepsBar *)bar stepAtIndex:(NSUInteger)index {
-    return [(UIViewController<RMStepViewController> *)[self.childViewControllers objectAtIndex:index] step];
+    return [(UIViewController *)[self.childViewControllers objectAtIndex:index] step];
 }
 
 - (void)stepsBarDidSelectCancelButton:(RMStepsBar *)bar {

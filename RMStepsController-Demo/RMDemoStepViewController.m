@@ -8,27 +8,13 @@
 
 #import "RMDemoStepViewController.h"
 
-#import "RMStepsController.h"
-#import "RMStep.h"
+#import "UIViewController+RMStepsController.h"
 
 @interface RMDemoStepViewController ()
 
 @end
 
 @implementation RMDemoStepViewController
-
-@synthesize stepsController = _stepsController;
-@synthesize step = _step;
-
-#pragma mark - Properties
-- (RMStep *)step {
-    if(!_step) {
-        self.step = [[RMStep alloc] init];
-        self.step.title = self.title;
-    }
-    
-    return _step;
-}
 
 #pragma mark - Actions
 - (IBAction)nextStepTapped:(id)sender {

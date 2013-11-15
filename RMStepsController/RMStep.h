@@ -12,8 +12,12 @@
 
 @property (nonatomic, strong) NSString *title;
 
-@property (nonatomic, strong, readonly) UIView *stepView;
-@property (nonatomic, strong, readonly) UILabel *numberLabel;
-@property (nonatomic, strong, readonly) UILabel *titleLabel;
+@property (nonatomic, strong) UIColor *selectedBarColor;
+@property (nonatomic, strong) UIColor *enabledBarColor;
+@property (nonatomic, strong) UIColor *disabledBarColor;
+
+@property (nonatomic, strong) UIColor *selectedTextColor;
+@property (nonatomic, strong) UIColor *enabledTextColor;
+@property (nonatomic, strong) UIColor *disabledTextColor;
 
 @end

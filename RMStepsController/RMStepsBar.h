@@ -30,11 +30,10 @@
 @property (nonatomic, weak) id<RMStepsBarDelegate> delegate;
 @property (nonatomic, weak) id<RMStepsBarDataSource> dataSource;
 
-@property (nonatomic, assign) NSUInteger indexOfSelectedStep;
+@property (nonatomic, strong) UIButton *cancelButton;
+@property (nonatomic, strong) UIColor *seperatorColor;
 
-@property (nonatomic, strong) UIColor *selectedColor;
-@property (nonatomic, strong) UIColor *enabledColor;
-@property (nonatomic, strong) UIColor *disabledColor;
+@property (nonatomic, assign) NSUInteger indexOfSelectedStep;
 
 - (void)setIndexOfSelectedStep:(NSUInteger)newIndexOfSelectedStep animated:(BOOL)animated;
 

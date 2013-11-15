@@ -9,6 +9,7 @@
 #import "RMDemoStepsController.h"
 
 #import "RMDemoStepViewController.h"
+#import "UIViewController+RMStepsController.h"
 
 @interface RMDemoStepsController ()
 
@@ -18,15 +19,20 @@
 
 - (NSArray *)stepViewControllers {
     RMDemoStepViewController *firstStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep"];
-    firstStep.title = @"First";
+    firstStep.step.title = @"First";
     
     RMDemoStepViewController *secondStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep2"];
-    secondStep.title = @"Second";
+    secondStep.step.title = @"Second";
+    secondStep.step.selectedBarColor = [UIColor redColor];
     
     RMDemoStepViewController *thirdStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep3"];
-    thirdStep.title = @"Third";
+    thirdStep.step.title = @"Third";
+    thirdStep.step.selectedBarColor = [UIColor blueColor];
     
-    return @[firstStep, secondStep, thirdStep];
+    RMDemoStepViewController *fourthStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep4"];
+    fourthStep.step.title = @"Fourth";
+    
+    return @[firstStep, secondStep, thirdStep, fourthStep];
 }
 
 @end

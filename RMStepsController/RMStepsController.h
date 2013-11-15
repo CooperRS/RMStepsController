@@ -8,16 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class RMStepsController;
-@class RMStep;
 @class RMStepsBar;
-
-@protocol RMStepViewController <NSObject>
-
-@property (nonatomic, strong) RMStepsController *stepsController;
-@property (nonatomic, strong) RMStep *step;
-
-@end
 
 @interface RMStepsController : UIViewController
 

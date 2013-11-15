@@ -10,6 +10,6 @@
 
 #import "RMStepsController.h"
 
-@interface RMDemoStepViewController : UIViewController <RMStepViewController>
+@interface RMDemoStepViewController : UIViewController
 
 @end
