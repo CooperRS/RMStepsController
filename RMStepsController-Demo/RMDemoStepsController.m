@@ -23,11 +23,9 @@
     
     RMDemoStepViewController *secondStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep2"];
     secondStep.step.title = @"Second";
-    secondStep.step.selectedBarColor = [UIColor redColor];
     
     RMDemoStepViewController *thirdStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep3"];
     thirdStep.step.title = @"Third";
-    thirdStep.step.selectedBarColor = [UIColor blueColor];
     
     RMDemoStepViewController *fourthStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep4"];
     fourthStep.step.title = @"Fourth";

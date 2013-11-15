@@ -26,6 +26,8 @@
 @property (nonatomic, strong) UIView *bottomLine;
 @property (nonatomic, strong) UIView *cancelSeperator;
 
+@property (nonatomic, strong, readwrite) UIButton *cancelButton;
+
 @property (nonatomic, strong) NSMutableArray *stepDictionaries;
 
 @end
@@ -47,8 +49,13 @@
         self.bottomLine.frame = CGRectMake(0, frame.size.width-1, frame.size.width, 1);
         [self addSubview:self.bottomLine];
         
+        self.cancelButton.frame = CGRectMake(0, 1, RM_CANCEL_BUTTON_WIDTH, frame.size.height-2);
+        [self addSubview:self.cancelButton];
+        
         self.cancelSeperator.frame = CGRectMake(RM_CANCEL_BUTTON_WIDTH, 0, 1, frame.size.height);
         [self addSubview:self.cancelSeperator];
+        
+        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(recognizedTap:)]];
     }
     return self;
 }
@@ -56,7 +63,7 @@
 #pragma mark - Properties
 - (UIColor *)seperatorColor {
     if(!_seperatorColor) {
-        self.seperatorColor = [UIColor colorWithWhite:0 alpha:0.3];
+        self.seperatorColor = [UIColor colorWithWhite:0.75 alpha:1];
     }
     
     return _seperatorColor;
@@ -95,6 +102,19 @@
     }
     
     return _bottomLine;
+}
+
+- (UIButton *)cancelButton {
+    if(!_cancelButton) {
+        self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_cancelButton setTitle:@"X" forState:UIControlStateNormal];
+        _cancelButton.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin;
+        [_cancelButton setTitleColor:[UIColor colorWithWhite:142./255. alpha:0.5] forState:UIControlStateNormal];
+        
+        [_cancelButton addTarget:self action:@selector(cancelButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _cancelButton;
 }
 
 - (UIView *)cancelSeperator {
@@ -260,6 +280,24 @@
         }
         
         [self updateStepsAnimated:NO];
+    }
+}
+
+- (void)cancelButtonTapped:(id)sender {
+    [self.delegate stepsBarDidSelectCancelButton:self];
+}
+
+- (void)recognizedTap:(UIGestureRecognizer *)recognizer {
+    CGPoint touchLocation = [recognizer locationInView:self];
+    for(NSDictionary *aStepDict in self.stepDictionaries) {
+        RMStep *step = aStepDict[RM_STEP_KEY];
+        
+        if(CGRectContainsPoint(step.stepView.frame, touchLocation)) {
+            NSInteger index = [self.stepDictionaries indexOfObject:aStepDict];
+            if(index < self.indexOfSelectedStep) {
+                [self.delegate stepsBar:self shouldSelectStepAtIndex:index];
+            }
+        }
     }
 }
 

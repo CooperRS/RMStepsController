@@ -137,7 +137,7 @@
 
 - (UIColor *)disabledTextColor {
     if(!_disabledTextColor) {
-        self.disabledTextColor = [UIColor colorWithWhite:0 alpha:0.3];
+        self.disabledTextColor = [UIColor colorWithWhite:0.75 alpha:1];
     }
     
     return _disabledTextColor;

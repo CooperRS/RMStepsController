@@ -136,24 +136,23 @@
         fromLeft = YES;
     
     aViewController.view.frame = CGRectMake(fromLeft ? -self.stepViewControllerContainer.frame.size.width : self.stepViewControllerContainer.frame.size.width, 0, self.stepViewControllerContainer.frame.size.width, self.stepViewControllerContainer.frame.size.height);
-    aViewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     [self.currentStepViewController viewWillDisappear:YES];
-    
     [aViewController viewWillAppear:YES];
     [self.stepViewControllerContainer addSubview:aViewController.view];
     
     [self.stepsBar setIndexOfSelectedStep:[self.childViewControllers indexOfObject:aViewController] animated:YES];
     
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-        aViewController.view.frame = CGRectMake(0, 0, self.stepViewControllerContainer.frame.size.width, self.stepViewControllerContainer.frame.size.height);
-        self.currentStepViewController.view.frame = CGRectMake(fromLeft ? self.stepViewControllerContainer.frame.size.width : -self.stepViewControllerContainer.frame.size.width, 0, self.stepViewControllerContainer.frame.size.width, self.stepViewControllerContainer.frame.size.height);
+    __weak RMStepsController *blockself = self;
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionLayoutSubviews animations:^{
+        aViewController.view.frame = CGRectMake(0, 0, blockself.stepViewControllerContainer.frame.size.width, blockself.stepViewControllerContainer.frame.size.height);
+        blockself.currentStepViewController.view.frame = CGRectMake(fromLeft ? blockself.stepViewControllerContainer.frame.size.width : -blockself.stepViewControllerContainer.frame.size.width, 0, blockself.stepViewControllerContainer.frame.size.width, blockself.stepViewControllerContainer.frame.size.height);
     } completion:^(BOOL finished) {
-        [self.currentStepViewController.view removeFromSuperview];
-        [self.currentStepViewController viewDidDisappear:YES];
+        [blockself.currentStepViewController.view removeFromSuperview];
+        [blockself.currentStepViewController viewDidDisappear:YES];
         
         [aViewController viewDidAppear:YES];
-        self.currentStepViewController = aViewController;
+        blockself.currentStepViewController = aViewController;
     }];
 }
 
@@ -200,7 +199,7 @@
 }
 
 - (void)stepsBar:(RMStepsBar *)bar shouldSelectStepAtIndex:(NSInteger)index {
-    
+    [self showStepViewController:[self.childViewControllers objectAtIndex:index] animated:YES];
 }
 
 @end
