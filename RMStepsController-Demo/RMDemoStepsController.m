@@ -33,4 +33,12 @@
     return @[firstStep, secondStep, thirdStep, fourthStep];
 }
 
+- (void)finishedAllSteps {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)canceled {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end
