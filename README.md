@@ -3,6 +3,16 @@ RMStepsController
 
 This is an iOS control for guiding users through a process step-by-step
 
+## Screenshots
+### Portrait
+![Portrait](http://cooperrs.github.io/RMStepsController/Images/Screen1.png)
+
+### Landscape
+![Landscape](http://cooperrs.github.io/RMStepsController/Images/Screen2.png)
+
+### Navigation Controller
+![Navigation Controller](http://cooperrs.github.io/RMStepsController/Images/Screen3.png)
+
 ##Installation
 ###Manual
 1. Check out the project
