@@ -34,7 +34,7 @@
                             <tableViewSection headerTitle="Modal" id="J0e-CJ-svh">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="e8I-w3-2i5" detailTextLabel="g8X-wr-whn" style="IBUITableViewCellStyleValue1" id="Id6-N0-3NV">
-                                        <rect key="frame" x="0.0" y="55" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Id6-N0-3NV" id="mxD-Id-gYo">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -65,7 +65,7 @@
                             <tableViewSection headerTitle="Non-Modal" id="cgT-Gd-m7j">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="NIN-RS-bw5" detailTextLabel="pqA-5o-Zy4" style="IBUITableViewCellStyleValue1" id="nxc-PN-ow5">
-                                        <rect key="frame" x="0.0" y="147" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="211" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nxc-PN-ow5" id="Q5N-dp-4Lt">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -269,6 +269,11 @@
                                     <constraint firstAttribute="bottom" secondItem="G5t-WP-hzl" secondAttribute="bottom" constant="20" id="y81-bd-UlS"/>
                                     <constraint firstItem="OgV-vi-hz6" firstAttribute="leading" secondItem="lzn-y5-fi9" secondAttribute="leading" constant="20" id="zWH-8c-4Fy"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bfp-8s-eLI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.61568629740000003" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

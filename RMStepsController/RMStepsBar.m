@@ -43,16 +43,16 @@
         self.translatesAutoresizingMaskIntoConstraints = NO;
         self.clipsToBounds = YES;
         
-        self.topLine.frame = CGRectMake(0, 0, frame.size.width, 1);
+        self.topLine.frame = CGRectMake(0, frame.size.height-44, frame.size.width, 1);
         [self addSubview:self.topLine];
         
-        self.bottomLine.frame = CGRectMake(0, frame.size.width-1, frame.size.width, 1);
+        self.bottomLine.frame = CGRectMake(0, frame.size.height-1, frame.size.width, 1);
         [self addSubview:self.bottomLine];
         
-        self.cancelButton.frame = CGRectMake(0, 1, RM_CANCEL_BUTTON_WIDTH, frame.size.height-2);
+        self.cancelButton.frame = CGRectMake(0, frame.size.height-43, RM_CANCEL_BUTTON_WIDTH, 42);
         [self addSubview:self.cancelButton];
         
-        self.cancelSeperator.frame = CGRectMake(RM_CANCEL_BUTTON_WIDTH, 0, 1, frame.size.height);
+        self.cancelSeperator.frame = CGRectMake(RM_CANCEL_BUTTON_WIDTH, frame.size.height-44, 1, frame.size.height);
         [self addSubview:self.cancelSeperator];
         
         [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(recognizedTap:)]];
@@ -88,7 +88,7 @@
     if(!_topLine) {
         self.topLine = [[UIView alloc] initWithFrame:CGRectZero];
         _topLine.backgroundColor = self.seperatorColor;
-        _topLine.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+        _topLine.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     }
     
     return _topLine;
@@ -109,11 +109,11 @@
         _hideCancelButton = newHideCancelButton;
         
         if(newHideCancelButton) {
-            self.cancelButton.frame = CGRectMake(-RM_CANCEL_BUTTON_WIDTH-1, 1, RM_CANCEL_BUTTON_WIDTH, self.frame.size.height-2);
-            self.cancelSeperator.frame = CGRectMake(-1, 1, 1, self.frame.size.height-2);
+            self.cancelButton.frame = CGRectMake(-RM_CANCEL_BUTTON_WIDTH-1, self.frame.size.height-43, RM_CANCEL_BUTTON_WIDTH, self.frame.size.height-2);
+            self.cancelSeperator.frame = CGRectMake(-1, self.frame.size.height-44, 1, self.frame.size.height-2);
         } else {
-            self.cancelButton.frame = CGRectMake(0, 1, RM_CANCEL_BUTTON_WIDTH, self.frame.size.height-2);
-            self.cancelSeperator.frame = CGRectMake(RM_CANCEL_BUTTON_WIDTH, 0, 1, self.frame.size.height);
+            self.cancelButton.frame = CGRectMake(0, self.frame.size.height-43, RM_CANCEL_BUTTON_WIDTH, self.frame.size.height-2);
+            self.cancelSeperator.frame = CGRectMake(RM_CANCEL_BUTTON_WIDTH, self.frame.size.height-44, 1, self.frame.size.height);
         }
     }
 }
@@ -122,7 +122,7 @@
     if(!_cancelButton) {
         self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_cancelButton setTitle:@"X" forState:UIControlStateNormal];
-        _cancelButton.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin;
+        _cancelButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin;
         [_cancelButton setTitleColor:[UIColor colorWithWhite:142./255. alpha:0.5] forState:UIControlStateNormal];
         
         [_cancelButton addTarget:self action:@selector(cancelButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -135,7 +135,7 @@
     if(!_cancelSeperator) {
         self.cancelSeperator = [[UIView alloc] initWithFrame:CGRectZero];
         _cancelSeperator.backgroundColor = self.seperatorColor;
-        _cancelSeperator.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
+        _cancelSeperator.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
     }
     
     return _cancelSeperator;
@@ -270,12 +270,12 @@
         NSDictionary *bindingsDict = NSDictionaryOfVariableBindings(leftEnd, rightEnd, stepView);
         NSDictionary *metricsDict = NSDictionaryOfVariableBindings(minimalStepWidth, seperatorWidth);
         
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(1)-[stepView]-(1)-|" options:0 metrics:metricsDict views:bindingsDict]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[stepView(42)]-(1)-|" options:0 metrics:metricsDict views:bindingsDict]];
         if(rightSeperator) {
             [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[leftEnd]-(0)-[stepView]-(0)-[rightEnd]" options:0 metrics:metricsDict views:bindingsDict]];
             
             [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[rightEnd(seperatorWidth)]" options:0 metrics:metricsDict views:bindingsDict]];
-            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(1)-[rightEnd]-(1)-|" options:0 metrics:metricsDict views:bindingsDict]];
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[rightEnd(42)]-(1)-|" options:0 metrics:metricsDict views:bindingsDict]];
         } else {
             [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[leftEnd]-(0)-[stepView]-(0)-|" options:0 metrics:metricsDict views:bindingsDict]];
         }
