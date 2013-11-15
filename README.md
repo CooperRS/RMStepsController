@@ -1,13 +1,59 @@
-RMDateSelectionViewController
+RMStepsController
 =============================
 
 This is an iOS control for guiding users through a process step-by-step
 
 ##Installation
-TODO...
+###Manual
+1. Check out the project
+2. Add all files in `RMStepsController` folder to Xcode
 
 ##Usage
-TODO...
+###Basic
+1. Create a subclass of `RMStepsController` in your project.
+	
+	```objc
+	#import "RMStepsController.h"
+	
+	@interface YourStepsController : RMStepsController
+	@end
+	```
+	
+	```objc
+	#import "YourStepsController.h"
+	#import "UIViewController+RMStepsController.h"
+	
+	@implementation RMModalStepsController
+	@end
+	```
+	
+2. Implement `-(NSArray *)stepViewControllers` and return the view controllers of your steps.
+	
+	```objc
+	- (NSArray *)stepViewControllers {
+   		RMDemoStepViewController *firstStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep"];
+	    firstStep.step.title = @"First";
+ 		
+    	RMDemoStepViewController *secondStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep2"];
+    	secondStep.step.title = @"Second";
+    	
+    	return @[firstStep, secondStep];
+	}
+	```
+	
+3. Implement `-(void)finishedAllSteps` and `-(void)canceled`
+	
+	```objc
+	- (void)finishedAllSteps {
+    	[self dismissViewControllerAnimated:YES completion:nil];
+	}
+
+	- (void)canceled {
+    	[self dismissViewControllerAnimated:YES completion:nil];
+	}
+	```
+	
+4. Open `YourStepsController` by presenting it modally or pushing it in a navigation controller.
 
 ## Requirements
 Works with:
