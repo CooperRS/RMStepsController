@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class RMStepsBar;
+#import "RMStepsBar.h"
 
 @interface RMStepsController : UIViewController
 

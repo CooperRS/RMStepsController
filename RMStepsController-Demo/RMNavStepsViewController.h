@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Roland Moers. All rights reserved.
 //
 
-#import "RMDemoStepsController.h"
+#import "RMModalStepsController.h"
 
-@interface RMAnotherDemoStepsViewController : RMDemoStepsController
+@interface RMNavStepsViewController : RMModalStepsController
 
 @end

@@ -8,6 +8,6 @@
 
 #import "RMStepsController.h"
 
-@interface RMDemoStepsController : RMStepsController
+@interface RMModalStepsController : RMStepsController
 
 @end

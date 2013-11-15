@@ -104,6 +104,20 @@
     return _bottomLine;
 }
 
+- (void)setHideCancelButton:(BOOL)newHideCancelButton {
+    if(_hideCancelButton != newHideCancelButton) {
+        _hideCancelButton = newHideCancelButton;
+        
+        if(newHideCancelButton) {
+            self.cancelButton.frame = CGRectMake(-RM_CANCEL_BUTTON_WIDTH-1, 1, RM_CANCEL_BUTTON_WIDTH, self.frame.size.height-2);
+            self.cancelSeperator.frame = CGRectMake(-1, 1, 1, self.frame.size.height-2);
+        } else {
+            self.cancelButton.frame = CGRectMake(0, 1, RM_CANCEL_BUTTON_WIDTH, self.frame.size.height-2);
+            self.cancelSeperator.frame = CGRectMake(RM_CANCEL_BUTTON_WIDTH, 0, 1, self.frame.size.height);
+        }
+    }
+}
+
 - (UIButton *)cancelButton {
     if(!_cancelButton) {
         self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];

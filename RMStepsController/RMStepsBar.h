@@ -30,6 +30,7 @@
 @property (nonatomic, weak) id<RMStepsBarDelegate> delegate;
 @property (nonatomic, weak) id<RMStepsBarDataSource> dataSource;
 
+@property (nonatomic, assign) BOOL hideCancelButton;
 @property (nonatomic, strong, readonly) UIButton *cancelButton;
 @property (nonatomic, strong) UIColor *seperatorColor;
 

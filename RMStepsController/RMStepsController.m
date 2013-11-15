@@ -10,8 +10,6 @@
 
 #import "UIViewController+RMStepsController.h"
 
-#import "RMStepsBar.h"
-
 @interface RMStepsController () <RMStepsBarDelegate, RMStepsBarDataSource>
 
 @property (nonatomic, strong, readwrite) NSMutableDictionary *results;
@@ -24,7 +22,7 @@
 
 @implementation RMStepsController
 
-#pragma mark - Class methods
+#pragma mark - Configuration
 - (NSArray *)stepViewControllers {
     return @[];
 }
@@ -136,6 +134,7 @@
         fromLeft = YES;
     
     aViewController.view.frame = CGRectMake(fromLeft ? -self.stepViewControllerContainer.frame.size.width : self.stepViewControllerContainer.frame.size.width, 0, self.stepViewControllerContainer.frame.size.width, self.stepViewControllerContainer.frame.size.height);
+    aViewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     [self.currentStepViewController viewWillDisappear:YES];
     [aViewController viewWillAppear:YES];

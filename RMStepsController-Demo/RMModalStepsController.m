@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 Roland Moers. All rights reserved.
 //
 
-#import "RMDemoStepsController.h"
+#import "RMModalStepsController.h"
 
 #import "RMDemoStepViewController.h"
 #import "UIViewController+RMStepsController.h"
 
-@interface RMDemoStepsController ()
+@interface RMModalStepsController ()
 
 @end
 
-@implementation RMDemoStepsController
+@implementation RMModalStepsController
 
 - (NSArray *)stepViewControllers {
     RMDemoStepViewController *firstStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep"];

@@ -6,14 +6,22 @@
 //  Copyright (c) 2013 Roland Moers. All rights reserved.
 //
 
-#import "RMAnotherDemoStepsViewController.h"
+#import "RMNavStepsViewController.h"
 
-@interface RMAnotherDemoStepsViewController ()
+@interface RMNavStepsViewController ()
 
 @end
 
-@implementation RMAnotherDemoStepsViewController
+@implementation RMNavStepsViewController
 
+#pragma mark - Init and Dealloc
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.stepsBar.hideCancelButton = YES;
+}
+
+#pragma mark - Actions
 - (void)finishedAllSteps {
     [self.navigationController popViewControllerAnimated:YES];
 }
