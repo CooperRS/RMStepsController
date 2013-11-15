@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="762" y="-345"/>
         </scene>
-        <!--Table View Controller - Root View Controller-->
+        <!--Table View Controller - RMStepsController Demo-->
         <scene sceneID="QMv-IC-BuS">
             <objects>
                 <tableViewController id="lzF-qm-XPj" sceneMemberID="viewController">
@@ -40,8 +40,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Open demo process..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e8I-w3-2i5">
-                                                    <rect key="frame" x="15" y="11" width="171" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Modal demo process..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e8I-w3-2i5">
+                                                    <rect key="frame" x="15" y="11" width="177" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -95,7 +95,7 @@
                             </tableViewSection>
                         </sections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="9e0-wX-Evc"/>
+                    <navigationItem key="navigationItem" title="RMStepsController Demo" id="9e0-wX-Evc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8o-SB-uAO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -190,7 +190,7 @@
             </objects>
             <point key="canvasLocation" x="1175" y="5"/>
         </scene>
-        <!--Nav Steps View Controller-->
+        <!--Nav Steps View Controller - Navigation-->
         <scene sceneID="oYM-e6-0oX">
             <objects>
                 <viewController id="bkj-oV-R36" customClass="RMNavStepsViewController" sceneMemberID="viewController">
@@ -203,7 +203,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ILP-gi-mmR"/>
+                    <navigationItem key="navigationItem" title="Navigation" id="ILP-gi-mmR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77O-nl-5Ea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
