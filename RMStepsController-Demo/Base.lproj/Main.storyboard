@@ -270,11 +270,6 @@
                                     <constraint firstItem="OgV-vi-hz6" firstAttribute="leading" secondItem="lzn-y5-fi9" secondAttribute="leading" constant="20" id="zWH-8c-4Fy"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bfp-8s-eLI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.61568629740000003" alpha="1" colorSpace="deviceRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
