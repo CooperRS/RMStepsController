@@ -41,10 +41,10 @@ This is an iOS control for guiding users through a process step-by-step
 	
 	```objc
 	- (NSArray *)stepViewControllers {
-   		RMDemoStepViewController *firstStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep"];
+   		UIViewController *firstStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep"];
 	    firstStep.step.title = @"First";
  		
-    	RMDemoStepViewController *secondStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep2"];
+    	UIViewController *secondStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep2"];
     	secondStep.step.title = @"Second";
     	
     	return @[firstStep, secondStep];
