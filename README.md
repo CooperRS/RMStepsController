@@ -31,7 +31,6 @@ This is an iOS control for guiding users through a process step-by-step
 	
 	```objc
 	#import "YourStepsController.h"
-	#import "UIViewController+RMStepsController.h"
 	
 	@implementation YourStepsController
 	@end
