@@ -33,7 +33,7 @@ This is an iOS control for guiding users through a process step-by-step
 	#import "YourStepsController.h"
 	#import "UIViewController+RMStepsController.h"
 	
-	@implementation RMModalStepsController
+	@implementation YourStepsController
 	@end
 	```
 	
