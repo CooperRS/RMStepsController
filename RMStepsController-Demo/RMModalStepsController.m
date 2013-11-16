@@ -26,9 +26,6 @@
 
 #import "RMModalStepsController.h"
 
-#import "RMDemoStepViewController.h"
-#import "UIViewController+RMStepsController.h"
-
 @interface RMModalStepsController ()
 
 @end
@@ -36,16 +33,16 @@
 @implementation RMModalStepsController
 
 - (NSArray *)stepViewControllers {
-    RMDemoStepViewController *firstStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep"];
+    UIViewController *firstStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep"];
     firstStep.step.title = @"First";
     
-    RMDemoStepViewController *secondStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep2"];
+    UIViewController *secondStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep2"];
     secondStep.step.title = @"Second";
     
-    RMDemoStepViewController *thirdStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep3"];
+    UIViewController *thirdStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep3"];
     thirdStep.step.title = @"Third";
     
-    RMDemoStepViewController *fourthStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep4"];
+    UIViewController *fourthStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep4"];
     fourthStep.step.title = @"Fourth";
     
     return @[firstStep, secondStep, thirdStep, fourthStep];

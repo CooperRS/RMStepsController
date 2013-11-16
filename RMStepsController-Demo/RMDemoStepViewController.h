@@ -26,8 +26,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "RMStepsController.h"
-
 @interface RMDemoStepViewController : UIViewController
 
 @end

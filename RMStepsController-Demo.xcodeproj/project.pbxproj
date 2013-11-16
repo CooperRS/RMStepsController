@@ -20,8 +20,6 @@
 		CAB31F1C1835101000D8CF4E /* RMDemoStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB31F1B1835101000D8CF4E /* RMDemoStepViewController.m */; };
 		CAB31F281835123500D8CF4E /* RMStepsBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB31F271835123500D8CF4E /* RMStepsBar.m */; };
 		CAB31F2B1835128300D8CF4E /* RMStep.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB31F2A1835128300D8CF4E /* RMStep.m */; };
-		CAB31F2E1835360500D8CF4E /* RMStepSeperatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB31F2D1835360500D8CF4E /* RMStepSeperatorView.m */; };
-		CAE8E55B18366C7300DA0BE9 /* UIViewController+RMStepsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE8E55A18366C7300DA0BE9 /* UIViewController+RMStepsController.m */; };
 		CAE8E55F1836C8B300DA0BE9 /* RMNavStepsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE8E55E1836C8B300DA0BE9 /* RMNavStepsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -49,11 +47,6 @@
 		CAB31F271835123500D8CF4E /* RMStepsBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMStepsBar.m; sourceTree = "<group>"; };
 		CAB31F291835128300D8CF4E /* RMStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMStep.h; sourceTree = "<group>"; };
 		CAB31F2A1835128300D8CF4E /* RMStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMStep.m; sourceTree = "<group>"; };
-		CAB31F2C1835360500D8CF4E /* RMStepSeperatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMStepSeperatorView.h; sourceTree = "<group>"; };
-		CAB31F2D1835360500D8CF4E /* RMStepSeperatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMStepSeperatorView.m; sourceTree = "<group>"; };
-		CAE8E556183669FA00DA0BE9 /* RMStep+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RMStep+Private.h"; sourceTree = "<group>"; };
-		CAE8E55918366C7300DA0BE9 /* UIViewController+RMStepsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RMStepsController.h"; sourceTree = "<group>"; };
-		CAE8E55A18366C7300DA0BE9 /* UIViewController+RMStepsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RMStepsController.m"; sourceTree = "<group>"; };
 		CAE8E55D1836C8B300DA0BE9 /* RMNavStepsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNavStepsViewController.h; sourceTree = "<group>"; };
 		CAE8E55E1836C8B300DA0BE9 /* RMNavStepsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNavStepsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,12 +131,7 @@
 				CAB31F261835123500D8CF4E /* RMStepsBar.h */,
 				CAB31F271835123500D8CF4E /* RMStepsBar.m */,
 				CAB31F291835128300D8CF4E /* RMStep.h */,
-				CAE8E556183669FA00DA0BE9 /* RMStep+Private.h */,
 				CAB31F2A1835128300D8CF4E /* RMStep.m */,
-				CAB31F2C1835360500D8CF4E /* RMStepSeperatorView.h */,
-				CAB31F2D1835360500D8CF4E /* RMStepSeperatorView.m */,
-				CAE8E55918366C7300DA0BE9 /* UIViewController+RMStepsController.h */,
-				CAE8E55A18366C7300DA0BE9 /* UIViewController+RMStepsController.m */,
 			);
 			path = RMStepsController;
 			sourceTree = "<group>";
@@ -214,12 +202,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAE8E55B18366C7300DA0BE9 /* UIViewController+RMStepsController.m in Sources */,
 				CAB31F1C1835101000D8CF4E /* RMDemoStepViewController.m in Sources */,
 				CAB31F1618350EBE00D8CF4E /* RMStepsController.m in Sources */,
 				CAB31EE818350D4A00D8CF4E /* main.m in Sources */,
 				CAE8E55F1836C8B300DA0BE9 /* RMNavStepsViewController.m in Sources */,
-				CAB31F2E1835360500D8CF4E /* RMStepSeperatorView.m in Sources */,
 				CAB31EEC18350D4A00D8CF4E /* RMAppDelegate.m in Sources */,
 				CAB31F281835123500D8CF4E /* RMStepsBar.m in Sources */,
 				CAB31F2B1835128300D8CF4E /* RMStep.m in Sources */,
