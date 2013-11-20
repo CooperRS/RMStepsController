@@ -1,0 +1,5 @@
+language: objective-c
+xcode_sdk: iphonesimulator
+xcode_project: RMStepsController-Demo.xcodeproj
+xcode_scheme: RMStepsController-Demo
+
