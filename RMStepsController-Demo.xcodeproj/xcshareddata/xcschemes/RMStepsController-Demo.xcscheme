@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CAB31EFB18350D4A00D8CF4E"
-               BuildableName = "RMStepsController-DemoTests.xctest"
-               BlueprintName = "RMStepsController-DemoTests"
+               BlueprintIdentifier = "CA30C0CA183D36660037EE3A"
+               BuildableName = "RMStepsController-Tests.xctest"
+               BlueprintName = "RMStepsController-Tests"
                ReferencedContainer = "container:RMStepsController-Demo.xcodeproj">
             </BuildableReference>
          </TestableReference>
