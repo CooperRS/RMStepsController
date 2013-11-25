@@ -18,6 +18,12 @@ This is an iOS control for guiding users through a process step-by-step
 1. Check out the project
 2. Add all files in `RMStepsController` folder to Xcode
 
+###CocoaPods
+```ruby
+platform :ios, '7.0'
+pod "RMStepsController", "~> 0.9"
+```
+
 ##Usage
 ###Basic
 1. Create a subclass of `RMStepsController` in your project.
