@@ -234,6 +234,19 @@
         self.cancelSeperator.frame = CGRectMake(RM_CANCEL_BUTTON_WIDTH, frame.size.height-44, 1, frame.size.height);
         [self addSubview:self.cancelSeperator];
         
+        NSNumber *cancelWidth = @(RM_CANCEL_BUTTON_WIDTH);
+        
+        NSDictionary *bindingsDict = NSDictionaryOfVariableBindings(_topLine, _bottomLine, _cancelButton, _cancelSeperator);
+        NSDictionary *metricsDict = NSDictionaryOfVariableBindings(cancelWidth);
+        
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[_topLine]-(0)-|" options:0 metrics:metricsDict views:bindingsDict]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[_bottomLine]-(0)-|" options:0 metrics:metricsDict views:bindingsDict]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[_cancelButton(cancelWidth)]-(0)-[_cancelSeperator(1)]" options:0 metrics:metricsDict views:bindingsDict]];
+        
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_topLine(1)]-(42)-[_bottomLine(1)]-(0)-|" options:0 metrics:metricsDict views:bindingsDict]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_cancelButton(42)]-(1)-|" options:0 metrics:metricsDict views:bindingsDict]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_cancelSeperator(42)]-(1)-|" options:0 metrics:metricsDict views:bindingsDict]];
+        
         [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(recognizedTap:)]];
     }
     return self;
@@ -267,7 +280,7 @@
     if(!_topLine) {
         self.topLine = [[UIView alloc] initWithFrame:CGRectZero];
         _topLine.backgroundColor = self.seperatorColor;
-        _topLine.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+        _topLine.translatesAutoresizingMaskIntoConstraints = NO;
     }
     
     return _topLine;
@@ -277,7 +290,7 @@
     if(!_bottomLine) {
         self.bottomLine = [[UIView alloc] initWithFrame:CGRectZero];
         _bottomLine.backgroundColor = self.seperatorColor;
-        _bottomLine.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+        _bottomLine.translatesAutoresizingMaskIntoConstraints = NO;
     }
     
     return _bottomLine;
@@ -301,7 +314,7 @@
     if(!_cancelButton) {
         self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_cancelButton setTitle:@"X" forState:UIControlStateNormal];
-        _cancelButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin;
+        _cancelButton.translatesAutoresizingMaskIntoConstraints = NO;
         [_cancelButton setTitleColor:[UIColor colorWithWhite:142./255. alpha:0.5] forState:UIControlStateNormal];
         
         [_cancelButton addTarget:self action:@selector(cancelButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -314,7 +327,7 @@
     if(!_cancelSeperator) {
         self.cancelSeperator = [[UIView alloc] initWithFrame:CGRectZero];
         _cancelSeperator.backgroundColor = self.seperatorColor;
-        _cancelSeperator.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
+        _cancelSeperator.translatesAutoresizingMaskIntoConstraints = NO;
     }
     
     return _cancelSeperator;
