@@ -131,7 +131,11 @@
     [self.currentStepViewController.view removeFromSuperview];
     [self.currentStepViewController viewDidDisappear:NO];
     
-    aViewController.view.frame = CGRectMake(0, 0, self.stepViewControllerContainer.frame.size.width, self.stepViewControllerContainer.frame.size.height);
+    CGFloat y = 0;
+    if(!aViewController.extendedLayoutIncludesOpaqueBars && !(aViewController.edgesForExtendedLayout & UIRectEdgeTop))
+        y = self.stepsBar.frame.origin.y + self.stepsBar.frame.size.height;
+    
+    aViewController.view.frame = CGRectMake(0, y, self.stepViewControllerContainer.frame.size.width, self.stepViewControllerContainer.frame.size.height);
     aViewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     [aViewController viewWillAppear:NO];
@@ -152,7 +156,11 @@
     else
         fromLeft = YES;
     
-    aViewController.view.frame = CGRectMake(fromLeft ? -self.stepViewControllerContainer.frame.size.width : self.stepViewControllerContainer.frame.size.width, 0, self.stepViewControllerContainer.frame.size.width, self.stepViewControllerContainer.frame.size.height);
+    CGFloat y = 0;
+    if(!aViewController.extendedLayoutIncludesOpaqueBars && !(aViewController.edgesForExtendedLayout & UIRectEdgeTop))
+        y = self.stepsBar.frame.origin.y + self.stepsBar.frame.size.height;
+    
+    aViewController.view.frame = CGRectMake(fromLeft ? -self.stepViewControllerContainer.frame.size.width : self.stepViewControllerContainer.frame.size.width, y, self.stepViewControllerContainer.frame.size.width, self.stepViewControllerContainer.frame.size.height);
     aViewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     [self.currentStepViewController viewWillDisappear:YES];
@@ -163,8 +171,8 @@
     
     __weak RMStepsController *blockself = self;
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionLayoutSubviews animations:^{
-        aViewController.view.frame = CGRectMake(0, 0, blockself.stepViewControllerContainer.frame.size.width, blockself.stepViewControllerContainer.frame.size.height);
-        blockself.currentStepViewController.view.frame = CGRectMake(fromLeft ? blockself.stepViewControllerContainer.frame.size.width : -blockself.stepViewControllerContainer.frame.size.width, 0, blockself.stepViewControllerContainer.frame.size.width, blockself.stepViewControllerContainer.frame.size.height);
+        aViewController.view.frame = CGRectMake(0, y, blockself.stepViewControllerContainer.frame.size.width, blockself.stepViewControllerContainer.frame.size.height);
+        blockself.currentStepViewController.view.frame = CGRectMake(fromLeft ? blockself.stepViewControllerContainer.frame.size.width : -blockself.stepViewControllerContainer.frame.size.width, self.currentStepViewController.view.frame.origin.y, blockself.stepViewControllerContainer.frame.size.width, blockself.stepViewControllerContainer.frame.size.height);
     } completion:^(BOOL finished) {
         [blockself.currentStepViewController.view removeFromSuperview];
         [blockself.currentStepViewController viewDidDisappear:YES];
