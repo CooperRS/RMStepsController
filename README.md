@@ -13,6 +13,8 @@ This is an iOS control for guiding users through a process step-by-step
 ### Navigation Controller
 ![Navigation Controller](http://cooperrs.github.io/RMStepsController/Images/Screen3.png)
 
+[Animated version](http://cooperrs.github.io/RMStepsController/Images/Screen3-animated.gif)
+
 ##Installation
 ###Manual
 1. Check out the project
