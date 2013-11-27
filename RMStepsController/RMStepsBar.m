@@ -205,6 +205,7 @@
 @property (nonatomic, strong) UIView *bottomLine;
 @property (nonatomic, strong) UIView *cancelSeperator;
 
+@property (nonatomic, strong) NSLayoutConstraint *cancelButtonXConstraint;
 @property (nonatomic, strong, readwrite) UIButton *cancelButton;
 
 @property (nonatomic, strong) NSMutableArray *stepDictionaries;
@@ -241,7 +242,10 @@
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[_topLine]-(0)-|" options:0 metrics:metricsDict views:bindingsDict]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[_bottomLine]-(0)-|" options:0 metrics:metricsDict views:bindingsDict]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[_cancelButton(cancelWidth)]-(0)-[_cancelSeperator(1)]" options:0 metrics:metricsDict views:bindingsDict]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_cancelButton(cancelWidth)]-(0)-[_cancelSeperator(1)]" options:0 metrics:metricsDict views:bindingsDict]];
+        
+        self.cancelButtonXConstraint = [[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[_cancelButton]" options:0 metrics:metricsDict views:bindingsDict] lastObject];
+        [self addConstraint:self.cancelButtonXConstraint];
         
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_topLine(1)]-(42)-[_bottomLine(1)]-(0)-|" options:0 metrics:metricsDict views:bindingsDict]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_cancelButton(42)]-(1)-|" options:0 metrics:metricsDict views:bindingsDict]];
@@ -301,11 +305,9 @@
         _hideCancelButton = newHideCancelButton;
         
         if(newHideCancelButton) {
-            self.cancelButton.frame = CGRectMake(-RM_CANCEL_BUTTON_WIDTH-1, self.frame.size.height-43, RM_CANCEL_BUTTON_WIDTH, self.frame.size.height-2);
-            self.cancelSeperator.frame = CGRectMake(-1, self.frame.size.height-44, 1, self.frame.size.height-2);
+            self.cancelButtonXConstraint.constant = -(RM_CANCEL_BUTTON_WIDTH+1);
         } else {
-            self.cancelButton.frame = CGRectMake(0, self.frame.size.height-43, RM_CANCEL_BUTTON_WIDTH, self.frame.size.height-2);
-            self.cancelSeperator.frame = CGRectMake(RM_CANCEL_BUTTON_WIDTH, self.frame.size.height-44, 1, self.frame.size.height);
+            self.cancelButtonXConstraint.constant = 0;
         }
     }
 }
