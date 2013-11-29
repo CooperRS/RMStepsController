@@ -105,4 +105,11 @@
  */
 @property (nonatomic, strong) RMStep *step;
 
+/**
+ This method is called when a `RMStepsController` is about to show the called instance of `UIViewController` and this instance indicates that it wants to be extended below bars. The called `UIViewController` can use the parameters to update it's content such that no content will disappear below a toolbar.
+ 
+ @param newInsets The new edge insets.
+ */
+- (void)adaptToEdgeInsets:(UIEdgeInsets)newInsets;
+
 @end

@@ -496,6 +496,7 @@
 				CA30C0DB183D36660037EE3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CAB31ED318350D4900D8CF4E /* Build configuration list for PBXProject "RMStepsController-Demo" */ = {
 			isa = XCConfigurationList;
