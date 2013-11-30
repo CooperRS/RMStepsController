@@ -34,6 +34,15 @@
 
 @implementation RMDemoStepViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if([self.step.title isEqualToString:@"Second"])
+        [self.stepsController.stepsBar setHideCancelButton:YES animated:YES];
+    else
+        [self.stepsController.stepsBar setHideCancelButton:NO animated:YES];
+}
+
 #pragma mark - Actions
 - (IBAction)nextStepTapped:(id)sender {
     [self.stepsController showNextStep];

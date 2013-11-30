@@ -301,13 +301,22 @@
 }
 
 - (void)setHideCancelButton:(BOOL)newHideCancelButton {
+    [self setHideCancelButton:newHideCancelButton animated:NO];
+}
+
+- (void)setHideCancelButton:(BOOL)newHideCancelButton animated:(BOOL)animated {
     if(_hideCancelButton != newHideCancelButton) {
         _hideCancelButton = newHideCancelButton;
         
-        if(newHideCancelButton) {
+        if(newHideCancelButton)
             self.cancelButtonXConstraint.constant = -(RM_CANCEL_BUTTON_WIDTH+1);
-        } else {
+        else
             self.cancelButtonXConstraint.constant = 0;
+        
+        if (animated) {
+            [UIView animateWithDuration:0.3 animations:^{
+                [self layoutIfNeeded];
+            }];
         }
     }
 }

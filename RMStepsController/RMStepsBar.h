@@ -118,6 +118,14 @@
 @property (nonatomic, assign) NSUInteger indexOfSelectedStep;
 
 /**
+ *  <#Description#>
+ *
+ *  @param newHideCancelButton    <#newHideCancelButton description#>
+ *  @param animated               <#animated description#>
+ */
+- (void)setHideCancelButton:(BOOL)newHideCancelButton animated:(BOOL)animated;
+
+/**
  Used to set the index of the selected step.
  
  @param newIndexOfSelectedStep The index of the new selected step.
