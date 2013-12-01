@@ -137,10 +137,8 @@
 }
 
 - (void)showStepViewControllerWithoutAnimation:(UIViewController *)aViewController {
-    [self.currentStepViewController viewWillDisappear:NO];
     [self.currentStepViewController.view removeFromSuperview];
-    [self.currentStepViewController viewDidDisappear:NO];
-    
+
     CGFloat y = 0;
     if(![self extendViewControllerBelowBars:aViewController])
         y = self.stepsBar.frame.origin.y + self.stepsBar.frame.size.height;
@@ -149,10 +147,8 @@
     aViewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     aViewController.view.translatesAutoresizingMaskIntoConstraints = YES;
     
-    [aViewController viewWillAppear:NO];
     [self.stepViewControllerContainer addSubview:aViewController.view];
-    [aViewController viewDidAppear:NO];
-    
+
     self.currentStepViewController = aViewController;
     [self.stepsBar setIndexOfSelectedStep:[self.childViewControllers indexOfObject:aViewController] animated:NO];
 }
@@ -175,8 +171,6 @@
     aViewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     aViewController.view.translatesAutoresizingMaskIntoConstraints = YES;
     
-    [self.currentStepViewController viewWillDisappear:YES];
-    [aViewController viewWillAppear:YES];
     [self.stepViewControllerContainer addSubview:aViewController.view];
     
     [self.stepsBar setIndexOfSelectedStep:[self.childViewControllers indexOfObject:aViewController] animated:YES];
@@ -187,9 +181,6 @@
         blockself.currentStepViewController.view.frame = CGRectMake(fromLeft ? blockself.stepViewControllerContainer.frame.size.width : -blockself.stepViewControllerContainer.frame.size.width, self.currentStepViewController.view.frame.origin.y, blockself.currentStepViewController.view.frame.size.width, blockself.currentStepViewController.view.frame.size.height);
     } completion:^(BOOL finished) {
         [blockself.currentStepViewController.view removeFromSuperview];
-        [blockself.currentStepViewController viewDidDisappear:YES];
-        
-        [aViewController viewDidAppear:YES];
         blockself.currentStepViewController = aViewController;
     }];
 }
