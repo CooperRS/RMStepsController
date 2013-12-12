@@ -282,3 +282,16 @@ static char const * const stepKey = "stepKey";
 }
 
 @end
+
+@interface UITableViewController (RMMultipleViewsController)
+@end
+
+@implementation UITableViewController (RMMultipleViewsController)
+
+#pragma mark - Helper
+- (void)adaptToEdgeInsets:(UIEdgeInsets)newInsets {
+    self.tableView.contentInset = newInsets;
+    self.tableView.scrollIndicatorInsets = newInsets;
+}
+
+@end
