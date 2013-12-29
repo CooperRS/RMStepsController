@@ -23,7 +23,7 @@ This is an iOS control for guiding users through a process step-by-step
 ###CocoaPods
 ```ruby
 platform :ios, '7.0'
-pod "RMStepsController", "~> 0.9"
+pod "RMStepsController", "~> 1.0.0"
 ```
 
 ##Usage
