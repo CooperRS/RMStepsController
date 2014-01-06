@@ -273,7 +273,7 @@ static char const * const stepKey = "stepKey";
 }
 
 - (void)setStep:(RMStep *)step {
-    objc_setAssociatedObject(self, stepKey, step, OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, stepKey, step, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark - Helper
