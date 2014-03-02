@@ -314,8 +314,9 @@
             self.cancelButtonXConstraint.constant = 0;
         
         if (animated) {
+            __weak RMStepsBar *blockself = self;
             [UIView animateWithDuration:0.3 animations:^{
-                [self layoutIfNeeded];
+                [blockself layoutIfNeeded];
             }];
         }
     }
@@ -366,11 +367,12 @@
         
         _indexOfSelectedStep = newIndexOfSelectedStep;
         
-        if(animated)
+        if(animated) {
+            __block RMStepsBar *blockself = self;
             [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-                [self layoutIfNeeded];
+                [blockself layoutIfNeeded];
             } completion:nil];
-        else
+        } else
             [self layoutIfNeeded];
         
         [self updateStepsAnimated:animated];
@@ -461,7 +463,7 @@
         }
         
         RMStep *step = [self.dataSource stepsBar:self stepAtIndex:i];
-        step.numberLabel.text = [NSString stringWithFormat:@"%u", i+1];
+        step.numberLabel.text = [NSString stringWithFormat:@"%lu", (long unsigned)i+1];
         [self addSubview:step.stepView];
         
         UIView *leftEnd = leftSeperator ? leftSeperator : self.cancelSeperator;
