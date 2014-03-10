@@ -81,6 +81,11 @@ Works with:
 
 May also work with previous Xcode and iOS SDK versions. But it will at least need a system capable of Autolayout (and I think it will look awful on iOS 6 ;)...)
 
+## Apps using this control
+Using this control in your app or know anyone who does?
+
+Feel free to add the app to this list: [Apps using RMStepsController](https://github.com/CooperRS/RMStepsController/wiki/Apps-using-RMStepsController)
+
 ## Credits
 Resources:
 * Joshua Gourneau (GIF of the control in action)
