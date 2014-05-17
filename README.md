@@ -72,6 +72,9 @@ pod "RMStepsController", "~> 1.0.0"
 	
 4. Open `YourStepsController` by presenting it modally or pushing it in a navigation controller.
 
+## Documentation
+There is an additional documentation available provided by the CocoaPods team. Take a look at [cocoadocs.org](http://cocoadocs.org/docsets/RMStepsController/).
+
 ## Requirements
 Works with:
 
