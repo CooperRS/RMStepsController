@@ -43,6 +43,8 @@
     if(!_stepView) {
         self.stepView = [[UIView alloc] initWithFrame:CGRectZero];
         _stepView.translatesAutoresizingMaskIntoConstraints = NO;
+        _stepView.clipsToBounds = YES;
+        _stepView.backgroundColor = self.disabledBarColor;
         
         [_stepView.layer addSublayer:self.circleLayer];
         

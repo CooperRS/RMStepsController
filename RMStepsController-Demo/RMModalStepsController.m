@@ -45,7 +45,26 @@
     UIViewController *fourthStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep4"];
     fourthStep.step.title = @"Fourth";
     
-    return @[firstStep, secondStep, thirdStep, fourthStep];
+    UIViewController *fifthStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep5"];
+    fifthStep.step.title = @"Fifth";
+    
+    UIViewController *sixthStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep6"];
+    sixthStep.step.title = @"Sixth";
+    
+    UIViewController *seventhStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep7"];
+    seventhStep.step.title = @"Seventh";
+    
+    UIViewController *eigthStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep8"];
+    eigthStep.step.title = @"Eigth";
+    
+    UIViewController *ninethStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep9"];
+    ninethStep.step.title = @"Nineth";
+    
+    UIViewController *tenthStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep10"];
+    tenthStep.step.title = @"Tenth";
+    
+    //return @[firstStep, secondStep, thirdStep, fourthStep, fifthStep];
+    return @[firstStep, secondStep, thirdStep, fourthStep, fifthStep, sixthStep, seventhStep, eigthStep, ninethStep, tenthStep];
 }
 
 - (void)finishedAllSteps {
