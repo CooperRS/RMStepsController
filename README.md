@@ -90,6 +90,9 @@ Using this control in your app or know anyone who does?
 Feel free to add the app to this list: [Apps using RMStepsController](https://github.com/CooperRS/RMStepsController/wiki/Apps-using-RMStepsController)
 
 ## Credits
+Code:
+* Tilo Westermann (Action sheet for unlimited number of steps)
+
 Resources:
 * Joshua Gourneau (GIF of the control in action)
 
