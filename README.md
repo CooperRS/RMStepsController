@@ -91,6 +91,7 @@ Feel free to add the app to this list: [Apps using RMStepsController](https://gi
 
 ## Credits
 Code:
+* Evgeniy Shestakov (Bugfixing)
 * Tilo Westermann (Action sheet for unlimited number of steps)
 
 Resources:
