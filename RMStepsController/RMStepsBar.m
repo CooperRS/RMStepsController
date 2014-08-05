@@ -203,7 +203,7 @@
 
 #pragma mark - Main Implementation
 
-@interface RMStepsBar ()
+@interface RMStepsBar () <UIActionSheetDelegate>
 
 @property (nonatomic, strong) UIView *topLine;
 @property (nonatomic, strong) UIView *bottomLine;
@@ -692,6 +692,7 @@
 
 - (void)recognizedTap:(UIGestureRecognizer *)recognizer {
     CGPoint touchLocation = [recognizer locationInView:self];
+    BOOL found = NO;
     for(NSDictionary *aStepDict in self.stepDictionaries) {
         RMStep *step = aStepDict[RM_STEP_KEY];
         
@@ -702,6 +703,67 @@
             }
         }
     }
+    
+    if (!found) {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Please select a step"
+                                                                 delegate:nil
+                                                        cancelButtonTitle:nil
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:nil];
+        actionSheet.delegate = self;
+        
+        if (self.leftMoreStepDictionary) {
+            RMStep *leftMoreStep = self.leftMoreStepDictionary[RM_STEP_KEY];
+            if(CGRectContainsPoint(leftMoreStep.stepView.frame, touchLocation)) {
+                RMStepSeperatorView *rightMoreStepSeperator = self.leftMoreStepDictionary[RM_RIGHT_SEPERATOR_KEY];
+                
+                [self.stepDictionaries enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    RMStep *step = obj[RM_STEP_KEY];
+                    
+                    if ((rightMoreStepSeperator.frame.origin.x + rightMoreStepSeperator.frame.size.width) == step.stepView.frame.origin.x &&
+                        idx < self.indexOfSelectedStep - 1) {
+                        [actionSheet addButtonWithTitle:step.title];
+                    }
+                }];
+            }
+        }
+        
+        if (self.rightMoreStepDictionary) {
+            RMStep *rightMoreStep = self.rightMoreStepDictionary[RM_STEP_KEY];
+            if(CGRectContainsPoint(rightMoreStep.stepView.frame, touchLocation)) {
+                RMStepSeperatorView *rightMoreStepSeperator = self.rightMoreStepDictionary[RM_LEFT_SEPERATOR_KEY];
+                
+                [self.stepDictionaries enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    RMStep *step = obj[RM_STEP_KEY];
+                    
+                    if (rightMoreStepSeperator.frame.origin.x == step.stepView.frame.origin.x) {
+                        [actionSheet addButtonWithTitle:step.title];
+                    }
+                }];
+            }
+        }
+        
+        actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+        [actionSheet showInView:[[self superview] superview]];
+    }
 }
+
+#pragma mark - UIActionSheet delegate conformance
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
+    
+    __block NSUInteger selectedStepIndex = 0;
+    [self.stepDictionaries enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        RMStep *step = obj[RM_STEP_KEY];
+        
+        if ([step.title isEqualToString:title]) {
+            selectedStepIndex = idx;
+            *stop = YES;
+        }
+    }];
+    
+    [self.delegate stepsBar:self shouldSelectStepAtIndex:selectedStepIndex];
+}
+
 
 @end
