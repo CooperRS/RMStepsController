@@ -750,6 +750,11 @@
 
 #pragma mark - UIActionSheet delegate conformance
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == actionSheet.cancelButtonIndex) {
+        return;
+    }
+    
     NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
     
     __block NSUInteger selectedStepIndex = 0;
