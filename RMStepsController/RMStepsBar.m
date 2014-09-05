@@ -697,6 +697,7 @@
         RMStep *step = aStepDict[RM_STEP_KEY];
         
         if(CGRectContainsPoint(step.stepView.frame, touchLocation)) {
+            found = YES;
             NSInteger index = [self.stepDictionaries indexOfObject:aStepDict];
             if(index < self.indexOfSelectedStep) {
                 [self.delegate stepsBar:self shouldSelectStepAtIndex:index];
@@ -705,16 +706,15 @@
     }
     
     if (!found) {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Please select a step"
-                                                                 delegate:nil
-                                                        cancelButtonTitle:nil
-                                                   destructiveButtonTitle:nil
-                                                        otherButtonTitles:nil];
-        actionSheet.delegate = self;
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] init];
+        BOOL foundPoint = NO;
         
+        NSString *leftRight;
         if (self.leftMoreStepDictionary) {
             RMStep *leftMoreStep = self.leftMoreStepDictionary[RM_STEP_KEY];
             if(CGRectContainsPoint(leftMoreStep.stepView.frame, touchLocation)) {
+                leftRight = @"left";
+                foundPoint = YES;
                 RMStepSeperatorView *rightMoreStepSeperator = self.leftMoreStepDictionary[RM_RIGHT_SEPERATOR_KEY];
                 
                 [self.stepDictionaries enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -731,6 +731,8 @@
         if (self.rightMoreStepDictionary) {
             RMStep *rightMoreStep = self.rightMoreStepDictionary[RM_STEP_KEY];
             if(CGRectContainsPoint(rightMoreStep.stepView.frame, touchLocation)) {
+                leftRight = @"right";
+                foundPoint = YES;
                 RMStepSeperatorView *rightMoreStepSeperator = self.rightMoreStepDictionary[RM_LEFT_SEPERATOR_KEY];
                 
                 [self.stepDictionaries enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -743,13 +745,24 @@
             }
         }
         
-        actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
-        [actionSheet showInView:[[self superview] superview]];
+        if (foundPoint) {
+            actionSheet.delegate = self;
+            actionSheet.title = [leftRight isEqualToString:@"left"] ? @"Please select a step." : @"Upcoming steps.\n(Skipping steps is not possible.)";
+            actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+            [actionSheet showInView:[[self superview] superview]];
+        } else {
+            actionSheet = nil;
+        }
     }
 }
 
 #pragma mark - UIActionSheet delegate conformance
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == actionSheet.cancelButtonIndex) {
+        return;
+    }
+    
     NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
     
     __block NSUInteger selectedStepIndex = 0;
@@ -762,7 +775,9 @@
         }
     }];
     
-    [self.delegate stepsBar:self shouldSelectStepAtIndex:selectedStepIndex];
+    if(selectedStepIndex < self.indexOfSelectedStep) {
+        [self.delegate stepsBar:self shouldSelectStepAtIndex:selectedStepIndex];
+    }
 }
 
 
