@@ -71,6 +71,11 @@
 - (void)showNextStep;
 
 /**
+ Call this method to proceed to the needed step.
+ */
+- (void)showStepForIndex:(NSInteger)index;
+
+/**
  Call this method to go one step back. When you call this method when already in the first step `-[RMStepsController canceled]`will be called.
  */
 - (void)showPreviousStep;

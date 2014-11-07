@@ -101,9 +101,15 @@
 @property (nonatomic, assign) BOOL hideCancelButton;
 
 /**
+ Used to allow user to go back.
+ */
+@property (nonatomic, assign) BOOL allowBackward;
+
+/**
  Used to access the cancel button and to customize its appearance.
  */
 @property (nonatomic, strong, readonly) UIButton *cancelButton;
+
 
 /**
  Used to set the seperator color.
