@@ -67,4 +67,10 @@
  */
 @property (nonatomic, strong) UIColor *disabledTextColor;
 
+/**
+ Provides access to the hide or show number label of this step.
+ */
+@property (nonatomic, assign) BOOL hideNumberLabel;
+
+
 @end
