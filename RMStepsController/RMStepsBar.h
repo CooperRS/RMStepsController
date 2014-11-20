@@ -101,6 +101,11 @@
 @property (nonatomic, assign) BOOL hideCancelButton;
 
 /**
+ Used to hide or show the number label for current step.
+ */
+@property (nonatomic, assign) BOOL hideNumberLabelWhenActiveStep;
+
+/**
  Used to allow user to go back.
  */
 @property (nonatomic, assign) BOOL allowBackward;

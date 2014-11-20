@@ -322,6 +322,7 @@
     }
 }
 
+
 - (UIButton *)cancelButton {
     if(!_cancelButton) {
         self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -376,6 +377,9 @@
             [self layoutIfNeeded];
         
         [self updateStepsAnimated:animated];
+    } else
+    {
+        [self updateStepsAnimated: NO];
     }
 }
 
@@ -393,6 +397,7 @@
                 step.titleLabel.textColor = step.enabledTextColor;
                 step.numberLabel.textColor = step.enabledTextColor;
                 step.circleLayer.strokeColor = step.enabledTextColor.CGColor;
+                step.hideNumberLabel = NO;
             };
             
             if(animated)
@@ -408,6 +413,7 @@
                 step.titleLabel.textColor = step.selectedTextColor;
                 step.numberLabel.textColor = step.selectedTextColor;
                 step.circleLayer.strokeColor = step.selectedTextColor.CGColor;
+                step.hideNumberLabel = self.hideNumberLabelWhenActiveStep;
             };
             
             if(animated)
@@ -423,6 +429,7 @@
                 step.titleLabel.textColor = step.disabledTextColor;
                 step.numberLabel.textColor = step.disabledTextColor;
                 step.circleLayer.strokeColor = step.disabledTextColor.CGColor;
+                step.hideNumberLabel = NO;
             };
             
             if(animated)
@@ -435,6 +442,7 @@
         }
     }];
 }
+
 
 #pragma mark - Actions
 - (void)reloadData {
