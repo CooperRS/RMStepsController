@@ -93,6 +93,7 @@ Feel free to add the app to this list: [Apps using RMStepsController](https://gi
 Code:
 * Evgeniy Shestakov (Bugfixing)
 * Tilo Westermann (Action sheet for unlimited number of steps)
+* Maciej Cupial (Convenience method for going back and property for hiding number label)
 
 Resources:
 * Joshua Gourneau (GIF of the control in action)
