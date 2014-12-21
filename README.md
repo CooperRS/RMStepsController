@@ -94,6 +94,7 @@ Code:
 * Evgeniy Shestakov (Bugfixing)
 * Tilo Westermann (Action sheet for unlimited number of steps)
 * Maciej Cupial (Convenience method for going back and property for hiding number label)
+* Cihat Gündüz (Bugfixing)
 
 Resources:
 * Joshua Gourneau (GIF of the control in action)
