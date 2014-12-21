@@ -111,7 +111,7 @@
 
 - (void)loadStepViewControllers {
     NSArray *stepViewControllers = [self stepViewControllers];
-    NSAssert([stepViewControllers count] > 0, @"Fatal: At least one step view controller must be returned by +[%@ stepViewControllers].", [self class]);
+    NSAssert([stepViewControllers count] > 0, @"Fatal: At least one step view controller must be returned by -[%@ stepViewControllers].", [self class]);
     
     for(UIViewController *aViewController in stepViewControllers) {
         NSAssert([aViewController isKindOfClass:[UIViewController class]], @"Fatal: %@ is not a subclass from UIViewController. Only UIViewControllers are supported by RMStepsController as steps.", [aViewController class]);
