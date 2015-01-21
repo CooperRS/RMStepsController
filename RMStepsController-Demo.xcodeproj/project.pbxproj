@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA153D561A700BAD002E88AF /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA153D551A700BAD002E88AF /* Launch Screen.xib */; };
 		CA30C0CC183D36660037EE3A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB31EFD18350D4A00D8CF4E /* XCTest.framework */; };
 		CA30C0CD183D36660037EE3A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB31EDB18350D4A00D8CF4E /* Foundation.framework */; };
 		CA30C0CE183D36660037EE3A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB31EDF18350D4A00D8CF4E /* UIKit.framework */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA153D551A700BAD002E88AF /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		CA30C0CB183D36660037EE3A /* RMStepsController-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RMStepsController-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA30C0D1183D36660037EE3A /* RMStepsController-Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RMStepsController-Tests-Info.plist"; sourceTree = "<group>"; };
 		CA30C0D3183D36660037EE3A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		CAB31EE118350D4A00D8CF4E /* RMStepsController-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				CA153D551A700BAD002E88AF /* Launch Screen.xib */,
 				CAB31EEA18350D4A00D8CF4E /* RMAppDelegate.h */,
 				CAB31EEB18350D4A00D8CF4E /* RMAppDelegate.m */,
 				CAB31EED18350D4A00D8CF4E /* Main.storyboard */,
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAB31EF718350D4A00D8CF4E /* Images.xcassets in Resources */,
+				CA153D561A700BAD002E88AF /* Launch Screen.xib in Resources */,
 				CAB31EE618350D4A00D8CF4E /* InfoPlist.strings in Resources */,
 				CAB31EEF18350D4A00D8CF4E /* Main.storyboard in Resources */,
 			);
