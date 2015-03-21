@@ -47,12 +47,12 @@
 /**
  Returns the instans of `RMStepsBar` used.
  */
-@property (nonatomic, strong, readonly) RMStepsBar *stepsBar;
+@property (nonatomic, readonly) RMStepsBar *stepsBar;
 
 /**
  Returns an instance `NSMutableDictionary` which can be used for storing results of one step. These results can then be accessed by another step using the dictionary returned here.
  */
-@property (nonatomic, strong, readonly) NSMutableDictionary *results;
+@property (nonatomic, readonly) NSMutableDictionary *results;
 
 /// @name Instance Methods
 
@@ -103,12 +103,12 @@
  
  If this `UIViewController` is not part of any `RMStepsController` this property will be `nil`.
  */
-@property (nonatomic, strong) RMStepsController *stepsController;
+@property (nonatomic) RMStepsController *stepsController;
 
 /**
  Provides access to an instance of `RMStep` associated with this `UIVIewController`.
  */
-@property (nonatomic, strong) RMStep *step;
+@property (nonatomic) RMStep *step;
 
 /**
  This method is called when a `RMStepsController` is about to show the called instance of `UIViewController` and this instance indicates that it wants to be extended below bars. The called `UIViewController` can use the parameters to update it's content such that no content will disappear below a toolbar.
