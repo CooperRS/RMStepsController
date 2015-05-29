@@ -23,7 +23,7 @@ This is an iOS control for guiding users through a process step-by-step
 ###CocoaPods
 ```ruby
 platform :ios, '7.0'
-pod "RMStepsController", "~> 1.0.1"
+pod "RMStepsController", "~> 1.0.2"
 ```
 
 ##Usage
@@ -90,6 +90,12 @@ Using this control in your app or know anyone who does?
 Feel free to add the app to this list: [Apps using RMStepsController](https://github.com/CooperRS/RMStepsController/wiki/Apps-using-RMStepsController)
 
 ## Credits
+Code:
+* Evgeniy Shestakov (Bugfixing)
+* Tilo Westermann (Action sheet for unlimited number of steps)
+* Maciej Cupial (Convenience method for going back and property for hiding number label)
+* Cihat Gündüz (Bugfixing)
+
 Resources:
 * Joshua Gourneau (GIF of the control in action)
 
