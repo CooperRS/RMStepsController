@@ -214,6 +214,8 @@
 
 @implementation RMStepsBar
 
+@dynamic delegate;
+
 @synthesize seperatorColor = _seperatorColor;
 
 #pragma mark - Init and Dealloc
