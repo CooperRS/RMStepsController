@@ -38,6 +38,11 @@
 @property (nonatomic, strong) NSString *title;
 
 /**
+ Provides access to the font of the title of this step as it is used by an instance of `RMStepsBar`.
+ */
+@property (nonatomic, strong) UIFont *titleFont;
+
+/**
  Provides access to the selected bar color of this step as it is used by an instance of `RMStepsBar`.
  */
 @property (nonatomic, strong) UIColor *selectedBarColor;

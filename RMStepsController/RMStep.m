@@ -82,7 +82,7 @@
         _numberLabel.textColor = self.disabledTextColor;
         _numberLabel.textAlignment = NSTextAlignmentCenter;
         _numberLabel.backgroundColor = [UIColor clearColor];
-        _numberLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
+        _numberLabel.font = self.titleFont;
         _numberLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
     
@@ -96,7 +96,7 @@
         _titleLabel.textColor = self.disabledTextColor;
         _titleLabel.textAlignment = NSTextAlignmentLeft;
         _titleLabel.backgroundColor = [UIColor clearColor];
-        _titleLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
+        _titleLabel.font = self.titleFont;
         _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
     
