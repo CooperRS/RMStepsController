@@ -79,11 +79,15 @@
     if(!_numberLabel) {
         self.numberLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _numberLabel.text = @"0";
-        _numberLabel.textColor = self.disabledTextColor;
+        _numberLabel.textColor = self.disabledNumberColor;
         _numberLabel.textAlignment = NSTextAlignmentCenter;
         _numberLabel.backgroundColor = [UIColor clearColor];
-        _numberLabel.font = self.titleFont;
+        _numberLabel.font = self.numberFont;
         _numberLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        if (_fillNumberLabel) {
+            _numberLabel.textColor = [UIColor whiteColor];
+        }
     }
     
     return _numberLabel;
@@ -111,8 +115,12 @@
         _circleLayer.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 2.0*radius, 2.0*radius) cornerRadius:radius].CGPath;
         _circleLayer.position = CGPointMake(9, 10);
         _circleLayer.fillColor = [UIColor clearColor].CGColor;
-        _circleLayer.strokeColor = self.disabledTextColor.CGColor;
+        _circleLayer.strokeColor = self.disabledNumberColor.CGColor;
         _circleLayer.lineWidth = 1;
+        
+        if (_fillNumberLabel) {
+            _circleLayer.fillColor = self.disabledNumberColor.CGColor;
+        }
     }
     
     return _circleLayer;
@@ -172,6 +180,30 @@
     }
     
     return _disabledTextColor;
+}
+
+- (UIColor *)selectedNumberColor {
+    if(!_selectedNumberColor) {
+        self.selectedNumberColor = [UIColor colorWithWhite:1 alpha:1];
+    }
+    
+    return _selectedNumberColor;
+}
+
+- (UIColor *)enabledNumberColor {
+    if(!_enabledNumberColor) {
+        self.enabledNumberColor = [UIColor colorWithWhite:1 alpha:1];
+    }
+    
+    return _enabledNumberColor;
+}
+
+- (UIColor *)disabledNumberColor {
+    if(!_disabledNumberColor) {
+        self.disabledNumberColor = [UIColor colorWithWhite:0.75 alpha:1];
+    }
+    
+    return _disabledNumberColor;
 }
 
 

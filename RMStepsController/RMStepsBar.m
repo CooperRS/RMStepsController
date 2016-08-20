@@ -396,9 +396,14 @@
             void (^stepAnimations)(void) = ^(void) {
                 step.stepView.backgroundColor = step.enabledBarColor;
                 step.titleLabel.textColor = step.enabledTextColor;
-                step.numberLabel.textColor = step.enabledTextColor;
-                step.circleLayer.strokeColor = step.enabledTextColor.CGColor;
+                step.numberLabel.textColor = step.enabledNumberColor;
+                step.circleLayer.strokeColor = step.enabledNumberColor.CGColor;
                 step.hideNumberLabel = NO;
+                
+                if (step.fillNumberLabel) {
+                    step.numberLabel.textColor = [UIColor whiteColor];
+                    step.circleLayer.fillColor = step.enabledNumberColor.CGColor;
+                }
             };
             
             if(animated)
@@ -412,9 +417,14 @@
             void (^stepAnimations)(void) = ^(void) {
                 step.stepView.backgroundColor = step.selectedBarColor;
                 step.titleLabel.textColor = step.selectedTextColor;
-                step.numberLabel.textColor = step.selectedTextColor;
-                step.circleLayer.strokeColor = step.selectedTextColor.CGColor;
+                step.numberLabel.textColor = step.selectedNumberColor;
+                step.circleLayer.strokeColor = step.selectedNumberColor.CGColor;
                 step.hideNumberLabel = self.hideNumberLabelWhenActiveStep;
+                
+                if (step.fillNumberLabel) {
+                    step.numberLabel.textColor = [UIColor whiteColor];
+                    step.circleLayer.fillColor = step.selectedNumberColor.CGColor;
+                }
             };
             
             if(animated)
@@ -428,9 +438,14 @@
             void (^stepAnimations)(void) = ^(void) {
                 step.stepView.backgroundColor = step.disabledBarColor;
                 step.titleLabel.textColor = step.disabledTextColor;
-                step.numberLabel.textColor = step.disabledTextColor;
-                step.circleLayer.strokeColor = step.disabledTextColor.CGColor;
+                step.numberLabel.textColor = step.disabledNumberColor;
+                step.circleLayer.strokeColor = step.disabledNumberColor.CGColor;
                 step.hideNumberLabel = NO;
+                
+                if (step.fillNumberLabel) {
+                    step.numberLabel.textColor = [UIColor whiteColor];
+                    step.circleLayer.fillColor = step.disabledNumberColor.CGColor;
+                }
             };
             
             if(animated)
