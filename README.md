@@ -15,19 +15,19 @@ This is an iOS control for guiding users through a process step-by-step
 
 [Animated version](http://cooperrs.github.io/RMStepsController/Images/Screen3-animated.gif)
 
-##Installation
-###Manual
+## Installation
+### Manual
 1. Check out the project
 2. Add all files in `RMStepsController` folder to Xcode
 
-###CocoaPods
+### CocoaPods
 ```ruby
 platform :ios, '7.0'
 pod "RMStepsController", "~> 1.0.2"
 ```
 
-##Usage
-###Basic
+## Usage
+### Basic
 1. Create a subclass of `RMStepsController` in your project.
 	
 	```objc
