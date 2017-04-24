@@ -52,7 +52,11 @@
 
 #pragma mark - Helper Classes
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 @interface RMStepSeperatorView : UIView<CAAnimationDelegate>
+#else
+@interface RMStepSeperatorView : UIView
+#endif
 
 @property (nonatomic, strong) CAShapeLayer *leftShapeLayer;
 @property (nonatomic, strong) CAShapeLayer *rightShapeLayer;
