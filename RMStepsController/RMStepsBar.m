@@ -52,7 +52,7 @@
 
 #pragma mark - Helper Classes
 
-@interface RMStepSeperatorView : UIView
+@interface RMStepSeperatorView : UIView<CAAnimationDelegate>
 
 @property (nonatomic, strong) CAShapeLayer *leftShapeLayer;
 @property (nonatomic, strong) CAShapeLayer *rightShapeLayer;
