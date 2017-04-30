@@ -154,7 +154,7 @@
 }
 
 - (void)showStepViewControllerWithSlideInAnimation:(UIViewController *)aViewController {
-    NSInteger oldIndex = [self.childViewControllers indexOfObject:self.currentStepViewController];
+    NSInteger oldIndex = [self currentStepIndex];
     NSInteger newIndex = [self.childViewControllers indexOfObject:aViewController];
     
     BOOL fromLeft = NO;
@@ -194,9 +194,13 @@
     [self updateContentInsetsForViewController:self.currentStepViewController];
 }
 
+-(NSInteger) currentStepIndex {
+    return [self.childViewControllers indexOfObject:self.currentStepViewController];
+}
+
 #pragma mark - Actions
 - (void)showNextStep {
-    NSInteger index = [self.childViewControllers indexOfObject:self.currentStepViewController];
+    NSInteger index = [self currentStepIndex];
     if(index < [self.childViewControllers count]-1) {
         UIViewController *nextStepViewController = [self.childViewControllers objectAtIndex:index+1];
         [self showStepViewController:nextStepViewController animated:YES];
@@ -206,7 +210,7 @@
 }
 
 - (void)showPreviousStep {
-    NSInteger index = [self.childViewControllers indexOfObject:self.currentStepViewController];
+    NSInteger index = [self currentStepIndex];
     if(index > 0) {
         UIViewController *nextStepViewController = [self.childViewControllers objectAtIndex:index-1];
         [self showStepViewController:nextStepViewController animated:YES];
