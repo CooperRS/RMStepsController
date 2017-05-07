@@ -60,8 +60,10 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[stepsBar]-0-|" options:0 metrics:nil views:bindingsDict]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[container]-0-|" options:0 metrics:nil views:bindingsDict]];
     
-    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.stepsBar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBaseline multiplier:1 constant:44];
-    [self.view addConstraint:constraint];
+    if ([self respondsToSelector:@selector(topLayoutGuide)]) {
+        NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.stepsBar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBaseline multiplier:1 constant:44];
+        [self.view addConstraint:constraint];
+    }
     
     [self loadStepViewControllers];
     [self showStepViewController:[self.childViewControllers objectAtIndex:0] animated:NO];
@@ -97,6 +99,10 @@
 
 #pragma mark - Helper
 - (BOOL)extendViewControllerBelowBars:(UIViewController *)aViewController {
+    if (![aViewController respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        return NO;
+    }
+    
     return (aViewController.extendedLayoutIncludesOpaqueBars || (aViewController.edgesForExtendedLayout & UIRectEdgeTop));
 }
 
