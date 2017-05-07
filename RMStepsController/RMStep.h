@@ -38,6 +38,16 @@
 @property (nonatomic, strong) NSString *title;
 
 /**
+ Provides access to the font of the title of this step as it is used by an instance of `RMStepsBar`.
+ */
+@property (nonatomic, strong) UIFont *titleFont;
+
+/**
+ Provides access to the font of the number index of this step as it is used by an instance of `RMStepsBar`.
+ */
+@property (nonatomic, strong) UIFont *numberFont;
+
+/**
  Provides access to the selected bar color of this step as it is used by an instance of `RMStepsBar`.
  */
 @property (nonatomic, strong) UIColor *selectedBarColor;
@@ -68,9 +78,29 @@
 @property (nonatomic, strong) UIColor *disabledTextColor;
 
 /**
+ Provides access to the selected number color of this step as it is used by an instance of `RMStepsBar`.
+ */
+@property (nonatomic, strong) UIColor *selectedNumberColor;
+
+/**
+ Provides access to the enabled number color of this step as it is used by an instance of `RMStepsBar`.
+ */
+@property (nonatomic, strong) UIColor *enabledNumberColor;
+
+/**
+ Provides access to the disabled number color of this step as it is used by an instance of `RMStepsBar`.
+ */
+@property (nonatomic, strong) UIColor *disabledNumberColor;
+
+/**
  Provides access to the hide or show number label of this step.
  */
 @property (nonatomic, assign) BOOL hideNumberLabel;
+
+/**
+ Provides access to the filled or empty color configuration for the number label of this step.
+ */
+@property (nonatomic, assign) BOOL fillNumberLabel;
 
 
 @end
