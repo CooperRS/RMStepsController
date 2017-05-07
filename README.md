@@ -5,7 +5,7 @@ This is an iOS control for guiding users through a process step-by-step
 
 ## Screenshots
 ### Portrait
-![Portrait](http://cooperrs.github.io/RMStepsController/Images/Screen1.png)
+![Portrait](http://31.media.tumblr.com/09898dfd16a8efa54bfccba030904834/tumblr_mwx45oK4oS1t44e9yo1_400.gif)
 
 ### Landscape
 ![Landscape](http://cooperrs.github.io/RMStepsController/Images/Screen2.png)
