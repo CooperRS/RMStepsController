@@ -24,7 +24,7 @@
 //  THE SOFTWARE.
 //
 
-#import "RMStepsController.h"
+#import <RMStepsController/RMStepsController.h>
 
 @interface RMModalStepsController : RMStepsController
 
