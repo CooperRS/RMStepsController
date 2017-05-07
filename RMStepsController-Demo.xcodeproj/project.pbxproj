@@ -13,6 +13,14 @@
 		CA30C0CE183D36660037EE3A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB31EDF18350D4A00D8CF4E /* UIKit.framework */; };
 		CA30C0D4183D36660037EE3A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA30C0D2183D36660037EE3A /* InfoPlist.strings */; };
 		CA30C0DE183D37640037EE3A /* RMStepsControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA30C0DD183D37640037EE3A /* RMStepsControllerTests.m */; };
+		CA7F06361EBF170A001106A0 /* RMStepsController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA7F062F1EBF170A001106A0 /* RMStepsController.framework */; };
+		CA7F06371EBF170A001106A0 /* RMStepsController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA7F062F1EBF170A001106A0 /* RMStepsController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA7F063C1EBF17B9001106A0 /* RMStepsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB31F1518350EBE00D8CF4E /* RMStepsController.m */; };
+		CA7F063D1EBF17B9001106A0 /* RMStepsBar.h in Headers */ = {isa = PBXBuildFile; fileRef = CAB31F261835123500D8CF4E /* RMStepsBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA7F063E1EBF17B9001106A0 /* RMStepsBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB31F271835123500D8CF4E /* RMStepsBar.m */; };
+		CA7F063F1EBF17B9001106A0 /* RMStep.h in Headers */ = {isa = PBXBuildFile; fileRef = CAB31F291835128300D8CF4E /* RMStep.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA7F06401EBF17B9001106A0 /* RMStep.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB31F2A1835128300D8CF4E /* RMStep.m */; };
+		CA7F06451EBF19C9001106A0 /* RMStepsController.h in Headers */ = {isa = PBXBuildFile; fileRef = CAB31F1418350EBE00D8CF4E /* RMStepsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAB31EDC18350D4A00D8CF4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB31EDB18350D4A00D8CF4E /* Foundation.framework */; };
 		CAB31EDE18350D4A00D8CF4E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB31EDD18350D4A00D8CF4E /* CoreGraphics.framework */; };
 		CAB31EE018350D4A00D8CF4E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB31EDF18350D4A00D8CF4E /* UIKit.framework */; };
@@ -21,11 +29,8 @@
 		CAB31EEC18350D4A00D8CF4E /* RMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB31EEB18350D4A00D8CF4E /* RMAppDelegate.m */; };
 		CAB31EEF18350D4A00D8CF4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB31EED18350D4A00D8CF4E /* Main.storyboard */; };
 		CAB31EF718350D4A00D8CF4E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB31EF618350D4A00D8CF4E /* Images.xcassets */; };
-		CAB31F1618350EBE00D8CF4E /* RMStepsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB31F1518350EBE00D8CF4E /* RMStepsController.m */; };
 		CAB31F1918350F2100D8CF4E /* RMModalStepsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB31F1818350F2100D8CF4E /* RMModalStepsController.m */; };
 		CAB31F1C1835101000D8CF4E /* RMDemoStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB31F1B1835101000D8CF4E /* RMDemoStepViewController.m */; };
-		CAB31F281835123500D8CF4E /* RMStepsBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB31F271835123500D8CF4E /* RMStepsBar.m */; };
-		CAB31F2B1835128300D8CF4E /* RMStep.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB31F2A1835128300D8CF4E /* RMStep.m */; };
 		CAE8E55F1836C8B300DA0BE9 /* RMNavStepsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE8E55E1836C8B300DA0BE9 /* RMNavStepsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +42,28 @@
 			remoteGlobalIDString = CAB31ED718350D4A00D8CF4E;
 			remoteInfo = "RMStepsController-Demo";
 		};
+		CA7F06341EBF170A001106A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAB31ED018350D4900D8CF4E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA7F062E1EBF170A001106A0;
+			remoteInfo = RMStepsController;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CA7F063B1EBF170A001106A0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CA7F06371EBF170A001106A0 /* RMStepsController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CA153D551A700BAD002E88AF /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
@@ -46,6 +72,8 @@
 		CA30C0D3183D36660037EE3A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CA30C0D7183D36660037EE3A /* RMStepsController-Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RMStepsController-Tests-Prefix.pch"; sourceTree = "<group>"; };
 		CA30C0DD183D37640037EE3A /* RMStepsControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMStepsControllerTests.m; sourceTree = "<group>"; };
+		CA7F062F1EBF170A001106A0 /* RMStepsController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RMStepsController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA7F06321EBF170A001106A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAB31ED818350D4A00D8CF4E /* RMStepsController-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RMStepsController-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB31EDB18350D4A00D8CF4E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CAB31EDD18350D4A00D8CF4E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,11 +112,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CA7F062B1EBF170A001106A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CAB31ED518350D4A00D8CF4E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CAB31EDE18350D4A00D8CF4E /* CoreGraphics.framework in Frameworks */,
+				CA7F06361EBF170A001106A0 /* RMStepsController.framework in Frameworks */,
 				CAB31EE018350D4A00D8CF4E /* UIKit.framework in Frameworks */,
 				CAB31EDC18350D4A00D8CF4E /* Foundation.framework in Frameworks */,
 			);
@@ -132,6 +168,7 @@
 			children = (
 				CAB31ED818350D4A00D8CF4E /* RMStepsController-Demo.app */,
 				CA30C0CB183D36660037EE3A /* RMStepsController-Tests.xctest */,
+				CA7F062F1EBF170A001106A0 /* RMStepsController.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,11 +223,25 @@
 				CAB31F271835123500D8CF4E /* RMStepsBar.m */,
 				CAB31F291835128300D8CF4E /* RMStep.h */,
 				CAB31F2A1835128300D8CF4E /* RMStep.m */,
+				CA7F06321EBF170A001106A0 /* Info.plist */,
 			);
 			path = RMStepsController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CA7F062C1EBF170A001106A0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA7F063D1EBF17B9001106A0 /* RMStepsBar.h in Headers */,
+				CA7F063F1EBF17B9001106A0 /* RMStep.h in Headers */,
+				CA7F06451EBF19C9001106A0 /* RMStepsController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		CA30C0CA183D36660037EE3A /* RMStepsController-Tests */ = {
@@ -211,6 +262,24 @@
 			productReference = CA30C0CB183D36660037EE3A /* RMStepsController-Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		CA7F062E1EBF170A001106A0 /* RMStepsController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA7F06381EBF170A001106A0 /* Build configuration list for PBXNativeTarget "RMStepsController" */;
+			buildPhases = (
+				CA7F062A1EBF170A001106A0 /* Sources */,
+				CA7F062B1EBF170A001106A0 /* Frameworks */,
+				CA7F062C1EBF170A001106A0 /* Headers */,
+				CA7F062D1EBF170A001106A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RMStepsController;
+			productName = RMStepsController;
+			productReference = CA7F062F1EBF170A001106A0 /* RMStepsController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		CAB31ED718350D4A00D8CF4E /* RMStepsController-Demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CAB31F0D18350D4A00D8CF4E /* Build configuration list for PBXNativeTarget "RMStepsController-Demo" */;
@@ -218,10 +287,12 @@
 				CAB31ED418350D4A00D8CF4E /* Sources */,
 				CAB31ED518350D4A00D8CF4E /* Frameworks */,
 				CAB31ED618350D4A00D8CF4E /* Resources */,
+				CA7F063B1EBF170A001106A0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CA7F06351EBF170A001106A0 /* PBXTargetDependency */,
 			);
 			name = "RMStepsController-Demo";
 			productName = "RMStepsController-Demo";
@@ -241,6 +312,10 @@
 					CA30C0CA183D36660037EE3A = {
 						TestTargetID = CAB31ED718350D4A00D8CF4E;
 					};
+					CA7F062E1EBF170A001106A0 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = CAB31ED318350D4900D8CF4E /* Build configuration list for PBXProject "RMStepsController-Demo" */;
@@ -258,6 +333,7 @@
 			targets = (
 				CAB31ED718350D4A00D8CF4E /* RMStepsController-Demo */,
 				CA30C0CA183D36660037EE3A /* RMStepsController-Tests */,
+				CA7F062E1EBF170A001106A0 /* RMStepsController */,
 			);
 		};
 /* End PBXProject section */
@@ -268,6 +344,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA30C0D4183D36660037EE3A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA7F062D1EBF170A001106A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,17 +376,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CA7F062A1EBF170A001106A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA7F06401EBF17B9001106A0 /* RMStep.m in Sources */,
+				CA7F063E1EBF17B9001106A0 /* RMStepsBar.m in Sources */,
+				CA7F063C1EBF17B9001106A0 /* RMStepsController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CAB31ED418350D4A00D8CF4E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CAB31F1C1835101000D8CF4E /* RMDemoStepViewController.m in Sources */,
-				CAB31F1618350EBE00D8CF4E /* RMStepsController.m in Sources */,
 				CAB31EE818350D4A00D8CF4E /* main.m in Sources */,
 				CAE8E55F1836C8B300DA0BE9 /* RMNavStepsViewController.m in Sources */,
 				CAB31EEC18350D4A00D8CF4E /* RMAppDelegate.m in Sources */,
-				CAB31F281835123500D8CF4E /* RMStepsBar.m in Sources */,
-				CAB31F2B1835128300D8CF4E /* RMStep.m in Sources */,
 				CAB31F1918350F2100D8CF4E /* RMModalStepsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +405,11 @@
 			isa = PBXTargetDependency;
 			target = CAB31ED718350D4A00D8CF4E /* RMStepsController-Demo */;
 			targetProxy = CA30C0D8183D36660037EE3A /* PBXContainerItemProxy */;
+		};
+		CA7F06351EBF170A001106A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA7F062E1EBF170A001106A0 /* RMStepsController */;
+			targetProxy = CA7F06341EBF170A001106A0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -385,6 +480,61 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		CA7F06391EBF170A001106A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = RMStepsController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = de.cooperrs.RMStepsController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CA7F063A1EBF170A001106A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = RMStepsController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = de.cooperrs.RMStepsController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -479,7 +629,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RMStepsController-Demo/RMStepsController-Demo-Prefix.pch";
 				INFOPLIST_FILE = "RMStepsController-Demo/RMStepsController-Demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.cooperrs.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -495,7 +645,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RMStepsController-Demo/RMStepsController-Demo-Prefix.pch";
 				INFOPLIST_FILE = "RMStepsController-Demo/RMStepsController-Demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.cooperrs.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -514,6 +664,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		CA7F06381EBF170A001106A0 /* Build configuration list for PBXNativeTarget "RMStepsController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA7F06391EBF170A001106A0 /* Debug */,
+				CA7F063A1EBF170A001106A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		CAB31ED318350D4900D8CF4E /* Build configuration list for PBXProject "RMStepsController-Demo" */ = {
 			isa = XCConfigurationList;
