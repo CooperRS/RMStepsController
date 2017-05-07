@@ -28,10 +28,10 @@
 
 @interface RMStep ()
 
-@property (nonatomic, strong, readwrite) UIView *stepView;
-@property (nonatomic, strong) UILabel *numberLabel;
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) CAShapeLayer *circleLayer;
+@property (nonatomic, readwrite) UIView *stepView;
+@property (nonatomic) UILabel *numberLabel;
+@property (nonatomic) UILabel *titleLabel;
+@property (nonatomic) CAShapeLayer *circleLayer;
 
 @end
 
@@ -82,7 +82,7 @@
         _numberLabel.textColor = self.disabledTextColor;
         _numberLabel.textAlignment = NSTextAlignmentCenter;
         _numberLabel.backgroundColor = [UIColor clearColor];
-        _numberLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
+        _numberLabel.font = self.numberLabelFont;
         _numberLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
     
@@ -96,7 +96,7 @@
         _titleLabel.textColor = self.disabledTextColor;
         _titleLabel.textAlignment = NSTextAlignmentLeft;
         _titleLabel.backgroundColor = [UIColor clearColor];
-        _titleLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
+        _titleLabel.font = self.titleLabelFont;
         _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
     
@@ -187,6 +187,18 @@
     self.circleLayer.hidden = hideNumberLabel;
     
     [self updateConstrains];
+}
+
+- (void)setNumberLabelFont:(UIFont *)font {
+    if (_numberLabel) {
+        _numberLabel.font = font ?: [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
+    }
+}
+
+- (void)setTitleLabelFont:(UIFont *)font {
+    if (_titleLabel) {
+        _titleLabel.font = font ?: [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
+    }
 }
 
 @end

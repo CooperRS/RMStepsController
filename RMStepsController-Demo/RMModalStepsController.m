@@ -35,15 +35,20 @@
 - (NSArray *)stepViewControllers {
     UIViewController *firstStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep"];
     firstStep.step.title = @"First";
+    firstStep.step.titleLabelFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:16];
     
     UIViewController *secondStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep2"];
     secondStep.step.title = @"Second";
+    secondStep.step.titleLabelFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:16];
+
     
     UIViewController *thirdStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep3"];
     thirdStep.step.title = @"Third";
+    thirdStep.step.titleLabelFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:16];
     
     UIViewController *fourthStep = [self.storyboard instantiateViewControllerWithIdentifier:@"SomeStep4"];
     fourthStep.step.title = @"Fourth";
+    fourthStep.step.titleLabelFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:16];
     
     return @[firstStep, secondStep, thirdStep, fourthStep];
 }

@@ -28,11 +28,11 @@
 
 @interface RMStepsController () <RMStepsBarDelegate, RMStepsBarDataSource>
 
-@property (nonatomic, strong, readwrite) NSMutableDictionary *results;
-@property (nonatomic, strong) UIViewController *currentStepViewController;
+@property (nonatomic, readwrite) NSMutableDictionary *results;
+@property (nonatomic) UIViewController *currentStepViewController;
 
-@property (nonatomic, strong, readwrite) RMStepsBar *stepsBar;
-@property (nonatomic, strong) UIView *stepViewControllerContainer;
+@property (nonatomic, readwrite) RMStepsBar *stepsBar;
+@property (nonatomic) UIView *stepViewControllerContainer;
 
 @end
 

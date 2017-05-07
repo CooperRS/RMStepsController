@@ -113,13 +113,13 @@
 /**
  Used to access the cancel button and to customize its appearance.
  */
-@property (nonatomic, strong, readonly) UIButton *cancelButton;
+@property (nonatomic, readonly) UIButton *cancelButton;
 
 
 /**
  Used to set the seperator color.
  */
-@property (nonatomic, strong) UIColor *seperatorColor;
+@property (nonatomic) UIColor *seperatorColor;
 
 /**
  Used to set the index of the selected step. When changing the selected step using this property the change will not be animated.

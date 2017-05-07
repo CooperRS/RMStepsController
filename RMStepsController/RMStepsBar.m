@@ -42,11 +42,11 @@
 
 @interface RMStep (Private)
 
-@property (nonatomic, strong, readonly) UIView *stepView;
-@property (nonatomic, strong, readonly) UILabel *numberLabel;
-@property (nonatomic, strong, readonly) UILabel *titleLabel;
+@property (nonatomic, readonly) UIView *stepView;
+@property (nonatomic, readonly) UILabel *numberLabel;
+@property (nonatomic, readonly) UILabel *titleLabel;
 
-@property (nonatomic, strong, readonly) CAShapeLayer *circleLayer;
+@property (nonatomic, readonly) CAShapeLayer *circleLayer;
 
 @end
 
@@ -58,10 +58,10 @@
 @interface RMStepSeperatorView : UIView
 #endif
 
-@property (nonatomic, strong) CAShapeLayer *leftShapeLayer;
-@property (nonatomic, strong) CAShapeLayer *rightShapeLayer;
+@property (nonatomic) CAShapeLayer *leftShapeLayer;
+@property (nonatomic) CAShapeLayer *rightShapeLayer;
 
-@property (nonatomic, strong) UIColor *seperatorColor;
+@property (nonatomic) UIColor *seperatorColor;
 
 - (void)setLeftColor:(UIColor *)leftColor animated:(BOOL)animated;
 - (void)setRightColor:(UIColor *)rightColor animated:(BOOL)animated;
@@ -205,14 +205,14 @@
 
 @interface RMStepsBar ()
 
-@property (nonatomic, strong) UIView *topLine;
-@property (nonatomic, strong) UIView *bottomLine;
-@property (nonatomic, strong) UIView *cancelSeperator;
+@property (nonatomic) UIView *topLine;
+@property (nonatomic) UIView *bottomLine;
+@property (nonatomic) UIView *cancelSeperator;
 
-@property (nonatomic, strong) NSLayoutConstraint *cancelButtonXConstraint;
-@property (nonatomic, strong, readwrite) UIButton *cancelButton;
+@property (nonatomic) NSLayoutConstraint *cancelButtonXConstraint;
+@property (nonatomic, readwrite) UIButton *cancelButton;
 
-@property (nonatomic, strong) NSMutableArray *stepDictionaries;
+@property (nonatomic) NSMutableArray *stepDictionaries;
 
 @end
 
