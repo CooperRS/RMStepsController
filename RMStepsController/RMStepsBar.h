@@ -111,6 +111,11 @@
 @property (nonatomic, assign) BOOL allowBackward;
 
 /**
+ Used to allow user to go forward.
+ */
+@property (nonatomic, assign) BOOL allowForward;
+
+/**
  Used to access the cancel button and to customize its appearance.
  */
 @property (nonatomic, strong, readonly) UIButton *cancelButton;

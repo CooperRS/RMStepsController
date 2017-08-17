@@ -528,7 +528,9 @@
             NSInteger index = [self.stepDictionaries indexOfObject:aStepDict];
             if(index < self.indexOfSelectedStep && self.allowBackward) {
                 [self.delegate stepsBar:self shouldSelectStepAtIndex:index];
-            }
+						} else if(index > self.indexOfSelectedStep && self.allowForward) {
+							[self.delegate stepsBar:self shouldSelectStepAtIndex:index];
+						}
         }
     }
 }
